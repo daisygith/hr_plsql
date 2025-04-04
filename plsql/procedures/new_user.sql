@@ -6,14 +6,14 @@ create or replace PROCEDURE new_user(
     v_count_email NUMBER;
     v_count_username NUMBER;
 BEGIN
-    -- chcek user with this email is exist
+    -- check user with this email is exist
 SELECT COUNT(*) INTO v_count_email FROM USERS WHERE email = p_email;
 -- if email exist, report an error
 IF v_count_email > 0 THEN
         RAISE_APPLICATION_ERROR(-20001, 'Exist this email: '|| CHR(9) || p_email );
 END IF;
 
-    -- chcek user with this username is exist
+    -- check user with this username is exist
 SELECT COUNT(*) INTO v_count_username FROM USERS WHERE username = p_username;
 -- if username exist, report an error
 IF v_count_username > 0 THEN
