@@ -6,6 +6,7 @@ const auth = require("./users/auth");
 const departments = require("./departments/departments");
 const employees = require("./employees/employees");
 const profiles = require("./profiles/profiles");
+const projects = require("./projects/projects");
 
 function error(err, req, res, next) {
   // log it
@@ -61,6 +62,17 @@ app.post("/api/profiles", profiles.add);
 app.put("/api/profiles/:id", profiles.update);
 
 app.delete("/api/profiles/:id", profiles.delete);
+
+//projects
+app.get("/api/projects", projects.list);
+
+app.get("/api/projects/:id", projects.getById);
+
+app.post("/api/projects", projects.add);
+
+app.put("/api/projects/:id", projects.update);
+
+app.delete("/api/projects/:id", projects.delete);
 
 app.use(error);
 
