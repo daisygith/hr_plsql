@@ -2,12 +2,19 @@
 
 const {
   getDepartments,
+  getDepartmentById,
   addDepartment,
   updateDepartment,
   deleteDepartment,
-} = require("./db");
+} = require("./accessData");
 exports.list = async function (req, res) {
   const data = await getDepartments();
+  res.send(data);
+};
+
+exports.getById = async function (req, res) {
+  const id = req.params.id;
+  const data = await getDepartmentById(id);
   res.send(data);
 };
 
