@@ -8,6 +8,7 @@ const employees = require("./employees/employees");
 const profiles = require("./profiles/profiles");
 const projects = require("./projects/projects");
 const roles = require("./roles/roles");
+const tasks = require("./tasks/tasks");
 
 function error(err, req, res, next) {
   // log it
@@ -85,6 +86,11 @@ app.post("/api/roles", roles.add);
 app.put("/api/roles/:id", roles.update);
 
 app.delete("/api/roles/:id", roles.delete);
+
+//tasks
+app.get("/api/projects/:projectId/tasks", tasks.list);
+
+app.get("/api/projects/:projectId/tasks/:taskId", tasks.getById);
 
 app.use(error);
 
