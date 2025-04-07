@@ -1,6 +1,6 @@
 "use strict";
 
-const { getUsers, addUser, updateUser, deleteUser } = require("./db");
+const { getUsers, addUser, updateUser, deleteUser } = require("./accessData");
 exports.list = async function (req, res) {
   const data = await getUsers();
   res.send(data);
