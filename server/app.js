@@ -92,6 +92,12 @@ app.get("/api/projects/:projectId/tasks", tasks.list);
 
 app.get("/api/projects/:projectId/tasks/:taskId", tasks.getById);
 
+app.post("/api/projects/:projectId/tasks", tasks.add);
+
+app.put("/api/projects/:projectId/tasks/:taskId", tasks.update);
+
+app.delete("/api/projects/:projectId/tasks/:taskId", tasks.delete);
+
 app.use(error);
 
 app.listen(port, () => {

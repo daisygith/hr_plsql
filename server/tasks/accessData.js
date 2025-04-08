@@ -44,71 +44,94 @@ exports.getTaskByIdForProjectId = async function (projectId, taskId) {
     }
   }
 };
-//
-// exports.addRole = async function (role) {
-//   let conn;
-//
-//   try {
-//     conn = await connection();
-//
-//     await conn.execute("BEGIN NEW_ROLE(:name); END;", {
-//       name: role.name,
-//     });
-//     const result = await conn.execute(
-//       `SELECT * FROM (
-//                     SELECT * FROM roles ORDER BY id DESC
-//                            ) FETCH FIRST 1 ROWS ONLY`,
-//       [],
-//       options,
-//     );
-//     return lowercaseKeys(result.rows[0]);
-//   } catch (err) {
-//     console.log("Err", err);
-//   } finally {
-//     if (conn) {
-//       await conn.close();
-//     }
-//   }
-// };
-//
-// exports.updateRole = async function (role) {
-//   let conn;
-//
-//   try {
-//     conn = await connection();
-//
-//     await conn.execute(`BEGIN UPDATE_ROLE(:id, :name); END;`, {
-//       id: role.id,
-//       name: role.name,
-//     });
-//     const result = await conn.execute(
-//       `SELECT * FROM roles WHERE id = :id`,
-//       [role.id],
-//       options,
-//     );
-//     return lowercaseKeys(result.rows[0]);
-//   } catch (err) {
-//     console.log("Err", err);
-//   } finally {
-//     if (conn) {
-//       await conn.close();
-//     }
-//   }
-// };
-//
-// exports.deleteRole = async function (roleId) {
-//   let conn;
-//
-//   try {
-//     conn = await connection();
-//     await conn.execute(`BEGIN DELETE_ROLE(:id); END;`, {
-//       id: roleId,
-//     });
-//   } catch (err) {
-//     console.log("Err", err);
-//   } finally {
-//     if (conn) {
-//       await conn.close();
-//     }
-//   }
-// };
+
+exports.addTaskForProjectId = async function (task) {
+  let conn;
+
+  try {
+    conn = await connection();
+
+    await conn.execute(
+      "BEGIN NEW_TASK(:name, :status, :estimated_task_time_end, :estimated_work_time, :priority_status, :start_date, :type_task, :project_id, :employee_id); END;",
+      {
+        name: task.name,
+        status: task.status,
+        estimated_task_time_end: task.estimated_task_time_end,
+        estimated_work_time: task.estimated_work_time,
+        priority_status: task.priority_status,
+        start_date: task.start_date,
+        type_task: task.type_task,
+        project_id: task.project_id,
+        employee_id: task.employee_id,
+      },
+    );
+    const result = await conn.execute(
+      `SELECT * FROM (
+                    SELECT * FROM tasks 
+                             ORDER BY id DESC
+                           ) FETCH FIRST 1 ROWS ONLY`,
+      [],
+      options,
+    );
+    return lowercaseKeys(result.rows[0]);
+  } catch (err) {
+    console.log("Err", err);
+  } finally {
+    if (conn) {
+      await conn.close();
+    }
+  }
+};
+
+exports.updateTaskForProjectId = async function (task) {
+  let conn;
+
+  try {
+    conn = await connection();
+
+    await conn.execute(
+      `BEGIN UPDATE_TASK(:id, :name, :status, :estimated_task_time_end, :estimated_work_time, :priority_status, :start_date, :type_task, :project_id, :employee_id); END;`,
+      {
+        id: task.id,
+        name: task.name,
+        status: task.status,
+        estimated_task_time_end: task.estimated_task_time_end,
+        estimated_work_time: task.estimated_work_time,
+        priority_status: task.priority_status,
+        start_date: task.start_date,
+        type_task: task.type_task,
+        project_id: task.project_id,
+        employee_id: task.employee_id,
+      },
+    );
+    const result = await conn.execute(
+      `SELECT * FROM tasks WHERE id = :id`,
+      [task.id],
+      options,
+    );
+    return lowercaseKeys(result.rows[0]);
+  } catch (err) {
+    console.log("Err", err);
+  } finally {
+    if (conn) {
+      await conn.close();
+    }
+  }
+};
+
+exports.deleteTaskForProjectId = async function (taskId) {
+  let conn;
+
+  try {
+    conn = await connection();
+    await conn.execute(`BEGIN DELETE_TASK(:id); END;`, {
+      id: taskId,
+    });
+  } catch (err) {
+    console.log("Err", err);
+  } finally {
+    if (conn) {
+      await conn.close();
+    }
+  }
+};
