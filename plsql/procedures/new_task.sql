@@ -75,7 +75,7 @@ ELSE
 
     -- if all is ok, create new tak
 INSERT INTO TASKS(name, status, estimated_task_time_end, estimated_work_time, priority_status, start_date, type_task, project_id, employee_id)
-VALUES(p_name,v_status, p_estimated_task_time_end, p_estimated_work_time, v_priority_status, p_start_date, v_type_task, p_project_id, p_employee_id);
+VALUES(p_name,v_status, p_estimated_task_time_end, p_estimated_work_time, v_priority_status, p_start_date, v_type_task, p_project_id, v_employee_id_to_project);
 
 COMMIT;
 END;
