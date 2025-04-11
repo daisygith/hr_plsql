@@ -22,14 +22,10 @@ END IF;
 
 INSERT INTO project_employees(project_id, employee_id)
 VALUES(p_project_id,p_employee_id);
---        UPDATE USER_ROLES SET
---        role_id = p_role_id
---        WHERE user_id = p_user_id;
---
---
+
+COMMIT;
 EXCEPTION
         WHEN NO_DATA_FOUND THEN
             DBMS_OUTPUT.PUT_LINE('NO FOUND SPECIFIED PROJECT ID: '|| p_project_id);
             DBMS_OUTPUT.PUT_LINE('NO FOUND SPECIFIED EMPLOYEE ID: '|| p_employee_id);
-COMMIT;
 END;
