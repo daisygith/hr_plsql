@@ -63,9 +63,19 @@ IF v_project_id = 0 THEN
         RAISE_APPLICATION_ERROR(-20002, 'The project:' || v_project_id ||' is not exist');
 END IF;
 
+IF p_employee_id IS NOT NULL THEN 
+    SELECT COUNT(*) INTO v_employee_id_to_project FROM project_employees WHERE project_id = p_project_id AND employee_id = p_employee_id;
+    IF v_employee_id_to_project = 0 THEN
+        RAISE_APPLICATION_ERROR(-20009, 'Invalid match');
+    END IF;
+    v_employee_id_to_project := p_employee_id;
+ELSE
+     v_employee_id_to_project := NULL;
+ END IF;
+
     -- if all is ok, create new tak
 INSERT INTO TASKS(name, status, estimated_task_time_end, estimated_work_time, priority_status, start_date, type_task, project_id, employee_id)
-VALUES(p_name,v_status, p_estimated_task_time_end, p_estimated_work_time, v_priority_status, p_start_date, v_type_task, p_project_id, p_employee_id);
+VALUES(p_name,v_status, p_estimated_task_time_end, p_estimated_work_time, v_priority_status, p_start_date, v_type_task, p_project_id, v_employee_id_to_project);
 
 COMMIT;
 END;

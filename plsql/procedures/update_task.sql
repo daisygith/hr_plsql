@@ -33,13 +33,14 @@ IF v_project_id = 0 THEN
         RAISE_APPLICATION_ERROR(-20003, 'The record with the specified ID does not exist.');
 END IF;
 
-    IF p_employee_id IS NOT NULL THEN
-SELECT COUNT(*) INTO v_employee_id FROM project_employees WHERE employee_id= p_employee_id;
-IF v_employee_id = 0 THEN
-            RAISE_APPLICATION_ERROR(-20010, 'The employee is not assigned to this project.');
-END IF;
+ IF p_employee_id IS NOT NULL THEN 
+    SELECT COUNT(*) INTO v_employee_id_to_project FROM project_employees WHERE project_id = p_project_id AND employee_id = p_employee_id;
+    IF v_employee_id_to_project = 0 THEN
+        RAISE_APPLICATION_ERROR(-20009, 'Invalid match');
+    END IF;
+    v_employee_id_to_project := p_employee_id;
 ELSE
-        v_employee_id := NULL;
+    v_employee_id_to_project := NULL;
 END IF;
 
 SELECT COUNT(*) INTO v_name FROM TASKS WHERE name = p_name;
@@ -90,7 +91,7 @@ UPDATE TASKS SET
                  start_date = p_start_date,
                  type_task = v_type_task,
                  project_id = p_project_id,
-                 employee_id = v_employee_id
+                 employee_id = v_employee_id_to_project
 WHERE id = p_id;
 
 COMMIT;
