@@ -108,3 +108,109 @@ exports.deleteProject = async function (projectId) {
     }
   }
 };
+
+exports.getEmployeesByProjectId = async function () {
+  let conn;
+
+  try {
+    conn = await connection();
+
+    const result = await conn.execute(
+      "select * from project_employees",
+      [],
+      options,
+    );
+
+    return result.rows.map((row) => lowercaseKeys(row));
+  } catch (err) {
+    console.log("Err", err);
+  } finally {
+    if (conn) {
+      await conn.close();
+    }
+  }
+};
+
+exports.addEmployeeToProjectId = async function (employee) {
+  let conn;
+
+  try {
+    conn = await connection();
+
+    await conn.execute(
+      "BEGIN ASSIGN_EMPLOYEE_TO_PROJECT(:project_id, :employee_id); END;",
+      {
+        project_id: employee.project_id,
+        employee_id: employee.employee_id,
+      },
+    );
+    const result = await conn.execute(
+      `SELECT * FROM (
+                    SELECT * FROM project_employees 
+                             WHERE project_id = :project_id AND employee_id = :employee_id
+                           ) FETCH FIRST 1 ROWS ONLY`,
+      [employee.project_id, employee.employee_id],
+      options,
+    );
+    return lowercaseKeys(result.rows[0]);
+  } catch (err) {
+    console.log("Err", err);
+  } finally {
+    if (conn) {
+      await conn.close();
+    }
+  }
+};
+
+exports.updateEmployeeForProjectId = async function (employee) {
+  let conn;
+
+  try {
+    conn = await connection();
+
+    await conn.execute(
+      `BEGIN UPDATE_ASSIGN_EMPLOYEE_TO_PROJECT(:project_id, :employee_id, :old_employee_id); END;`,
+      {
+        project_id: employee.project_id,
+        employee_id: employee.employee_id,
+        old_employee_id: employee.old_employee_id,
+      },
+    );
+    const result = await conn.execute(
+      `SELECT * FROM (
+                         SELECT * FROM project_employees
+                         WHERE project_id = :project_id AND employee_id = :employee_id
+                       ) FETCH FIRST 1 ROWS ONLY`,
+      [employee.project_id, employee.employee_id],
+      options,
+    );
+    return lowercaseKeys(result.rows[0]);
+  } catch (err) {
+    console.log("Err", err);
+  } finally {
+    if (conn) {
+      await conn.close();
+    }
+  }
+};
+
+exports.deleteEmployeeForProjectId = async function (projectId, employeeId) {
+  let conn;
+
+  try {
+    conn = await connection();
+    await conn.execute(
+      `BEGIN DELETE_ASSIGN_EMPLOYEE_TO_PROJECT(:project_id, :employee_id); END;`,
+      {
+        project_id: projectId,
+        employee_id: employeeId,
+      },
+    );
+  } catch (err) {
+    console.log("Err", err);
+  } finally {
+    if (conn) {
+      await conn.close();
+    }
+  }
+};

@@ -7,8 +7,8 @@ const departments = require("./departments/departments");
 const employees = require("./employees/employees");
 const profiles = require("./profiles/profiles");
 const projects = require("./projects/projects");
-const roles = require("./roles/roles");
 const tasks = require("./tasks/tasks");
+const roles = require("./roles/roles");
 
 function error(err, req, res, next) {
   // log it
@@ -76,16 +76,19 @@ app.put("/api/projects/:id", projects.update);
 
 app.delete("/api/projects/:id", projects.delete);
 
-//roles
-app.get("/api/roles", roles.list);
+//employees for projectId
+app.get("/api/projects/:projectId/employees", projects.getEmployees);
 
-app.get("/api/roles/:id", roles.getById);
+app.post("/api/projects/:projectId/employees", projects.addEmployee);
 
-app.post("/api/roles", roles.add);
-
-app.put("/api/roles/:id", roles.update);
-
-app.delete("/api/roles/:id", roles.delete);
+app.put(
+  "/api/projects/:projectId/employees/:employeeId",
+  projects.updateEmployee,
+);
+app.delete(
+  "/api/projects/:projectId/employees/:employeeId",
+  projects.deleteEmployee,
+);
 
 //tasks
 app.get("/api/projects/:projectId/tasks", tasks.list);
@@ -97,6 +100,17 @@ app.post("/api/projects/:projectId/tasks", tasks.add);
 app.put("/api/projects/:projectId/tasks/:taskId", tasks.update);
 
 app.delete("/api/projects/:projectId/tasks/:taskId", tasks.delete);
+
+//roles
+app.get("/api/roles", roles.list);
+
+app.get("/api/roles/:id", roles.getById);
+
+app.post("/api/roles", roles.add);
+
+app.put("/api/roles/:id", roles.update);
+
+app.delete("/api/roles/:id", roles.delete);
 
 app.use(error);
 
