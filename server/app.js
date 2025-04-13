@@ -4,6 +4,7 @@ const app = express();
 const port = 3000;
 const auth = require("./users/auth");
 const departments = require("./departments/departments");
+const request = require("./request-time-off/request-time-off");
 const employees = require("./employees/employees");
 const profiles = require("./profiles/profiles");
 const projects = require("./projects/projects");
@@ -42,6 +43,21 @@ app.post("/api/departments", departments.add);
 app.put("/api/departments/:id", departments.update);
 
 app.delete("/api/departments/:id", departments.delete);
+
+//request-time-off
+app.get("/api/employees/request-time-off", request.list);
+
+app.post("/api/employees/request-time-off", request.add);
+
+app.get("/api/employees/request-time-off/:employeeId", request.getById);
+
+app.put("/api/employees/request-time-off/:id", request.update);
+
+app.delete("/api/employees/request-time-off/:id", request.delete);
+
+app.put("/api/employees/request-time-off/:id/approve", request.statusApprove);
+app.put("/api/employees/request-time-off/:id/reject", request.statusReject);
+app.put("/api/employees/request-time-off/:id/pending", request.statusPending);
 
 //employees
 app.get("/api/employees", employees.list);
