@@ -2,7 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const port = 3000;
-const auth = require("./users/auth");
+const auth = require("./auth/auth");
+const users = require("./users/users");
 const departments = require("./departments/departments");
 const request = require("./request-time-off/request-time-off");
 const employees = require("./employees/employees");
@@ -23,15 +24,15 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 //auth
-app.get("/api/auth", auth.list);
+// app.get("/api/auth", auth.listAuth);
 
-app.post("/api/auth/signin", auth.add);
+app.post("/api/auth/signin", auth.addAuth);
 
-app.post("/api/auth/signup", auth.list);
+app.post("/api/auth/signup", auth.listAuth);
 
-app.put("/api/auth/:id", auth.update);
-
-app.delete("/api/auth/:id", auth.delete);
+// app.put("/api/auth/:id", auth.updateAuth);
+//
+// app.delete("/api/auth/:id", auth.deleteAuth);
 
 //departments
 app.get("/api/departments", departments.list);
@@ -132,6 +133,17 @@ app.post("/api/roles", roles.add);
 app.put("/api/roles/:id", roles.update);
 
 app.delete("/api/roles/:id", roles.delete);
+
+//users
+app.get("/api/users", users.list);
+
+app.get("/api/users/:id", users.getById);
+
+app.post("/api/users", users.add);
+
+app.put("/api/users/:id", users.update);
+
+app.delete("/api/users/:id", users.delete);
 
 app.use(error);
 
