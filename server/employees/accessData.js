@@ -34,6 +34,7 @@ exports.getEmployeeById = async function (employeeId) {
     return lowercaseKeys(result.rows[0]);
   } catch (err) {
     console.log("Err", err);
+    console.error("ORA ERROR", err.message, err.stack);
   } finally {
     if (conn) {
       await conn.close();
@@ -122,6 +123,56 @@ exports.deleteEmployee = async function (employeeId) {
     await conn.execute(`BEGIN DELETE_EMPLOYEE(:id); END;`, {
       id: employeeId,
     });
+  } catch (err) {
+    console.log("Err", err);
+  } finally {
+    if (conn) {
+      await conn.close();
+    }
+  }
+};
+
+exports.updateImageByEmployeeId = async function (image) {
+  let conn;
+
+  try {
+    conn = await connection();
+
+    await conn.execute(`BEGIN UPDATE_IMAGE_EMPLOYEE(:id, :image); END;`, {
+      id: image.id,
+      image: image.url,
+    });
+    const result = await conn.execute(
+      `SELECT * FROM employees WHERE id = :id`,
+      [image.id],
+      options,
+    );
+    return lowercaseKeys(result.rows[0]);
+  } catch (err) {
+    console.log("Err", err);
+  } finally {
+    if (conn) {
+      await conn.close();
+    }
+  }
+};
+
+exports.deleteImageByEmployeeId = async function (image) {
+  let conn;
+
+  try {
+    conn = await connection();
+
+    await conn.execute(`BEGIN DELETE_IMAGE_EMPLOYEE(:id, :image); END;`, {
+      id: image.id,
+      image: image.url,
+    });
+    const result = await conn.execute(
+      `SELECT * FROM employees WHERE id = :id`,
+      [image.id],
+      options,
+    );
+    return lowercaseKeys(result.rows[0]);
   } catch (err) {
     console.log("Err", err);
   } finally {

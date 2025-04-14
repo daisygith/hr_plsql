@@ -70,6 +70,11 @@ app.put("/api/employees/:id", employees.update);
 
 app.delete("/api/employees/:id", employees.delete);
 
+//image for employee
+app.put("/api/employees/:employeeId/image", employees.updateImage);
+
+app.delete("/api/employees/:employeeId/image", employees.deleteImage);
+
 //profiles
 app.get("/api/profiles", profiles.list);
 

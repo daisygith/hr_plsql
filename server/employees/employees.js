@@ -6,6 +6,8 @@ const {
   addEmployee,
   updateEmployee,
   deleteEmployee,
+  updateImageByEmployeeId,
+  deleteImageByEmployeeId,
 } = require("./accessData");
 exports.list = async function (req, res) {
   const data = await getEmployees();
@@ -13,7 +15,11 @@ exports.list = async function (req, res) {
 };
 
 exports.getById = async function (req, res) {
-  const id = req.params.id;
+  // const id = req.params.id;
+  const id = Number(req.params.id);
+  if (isNaN(id)) {
+    return res.status(400).send({ error: "Invalid id" });
+  }
   const data = await getEmployeeById(id);
   res.send(data);
 };
@@ -32,4 +38,24 @@ exports.delete = async function (req, res) {
   const id = req.params.id;
   const data = await deleteEmployee(id);
   res.send({ message: `Deleted ${id}` });
+};
+
+exports.updateImage = async function (req, res) {
+  const employeeId = req.params.employeeId;
+  const imageData = {
+    ...req.body,
+    id: Number(employeeId),
+  };
+  const data = await updateImageByEmployeeId(imageData);
+  res.send(data);
+};
+
+exports.deleteImage = async function (req, res) {
+  const employeeId = req.params.employeeId;
+  const imageData = {
+    ...req.body,
+    id: Number(employeeId),
+  };
+  const data = await deleteImageByEmployeeId(imageData);
+  res.send(data);
 };
