@@ -2,28 +2,6 @@
 const { connection, options } = require("../db/config");
 const { lowercaseKeys } = require("../utils");
 
-// exports.getDepartmentById = async function (departmentId) {
-//   let conn;
-//
-//   try {
-//     conn = await connection();
-//
-//     const result = await conn.execute(
-//       `SELECT * FROM departments WHERE id = :id`,
-//       [departmentId],
-//       options,
-//     );
-//
-//     return lowercaseKeys(result.rows[0]);
-//   } catch (err) {
-//     console.log("Err", err);
-//   } finally {
-//     if (conn) {
-//       await conn.close();
-//     }
-//   }
-// };
-
 //users
 exports.getUsers = async function () {
   let conn;
@@ -34,6 +12,28 @@ exports.getUsers = async function () {
     const result = await conn.execute("select * from users", [], options);
 
     return result.rows.map((row) => lowercaseKeys(row));
+  } catch (err) {
+    console.log("Err", err);
+  } finally {
+    if (conn) {
+      await conn.close();
+    }
+  }
+};
+
+exports.getUserById = async function (userId) {
+  let conn;
+
+  try {
+    conn = await connection();
+
+    const result = await conn.execute(
+      `SELECT * FROM users WHERE id = :id`,
+      [userId],
+      options,
+    );
+
+    return lowercaseKeys(result.rows[0]);
   } catch (err) {
     console.log("Err", err);
   } finally {
