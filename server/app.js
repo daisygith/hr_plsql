@@ -1,5 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
+const multer = require("multer");
+const path = require("path");
+const sharp = require("sharp");
+const fs = require("fs");
 const app = express();
 const port = 3000;
 const auth = require("./auth/auth");
@@ -20,8 +25,69 @@ function error(err, req, res, next) {
   res.status(500);
   res.send("Internal Server Error");
 }
+app.use(cors());
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
+//configure multer for file storage
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "hr_plsql");
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    cb(
+      null,
+      file.fieldname + "-" + uniqueSuffix + path.extname(file.orginalname),
+    );
+  },
+});
+
+const upload = multer({ storage: storage });
+
+app.post("api/uploads/images", upload.single("file"), (req, res) => {
+  const file = req.file;
+  if (!file) {
+    return res.status(400).send({ message: "Please select a file." });
+  }
+  const url = `/${file.filename}`;
+
+  //store file path with orginal filename as the key
+  db.set(file.filename, file.path);
+
+  res.json({
+    message: "File uploaded successfully.",
+    url: url,
+  });
+});
+
+//In-memory storage for file paths
+const db = new Map();
+const processed = new Map();
+
+//ensure the transform-image directory exists
+const transformedDir = path.join(__dirname, "transform-image");
+if (!fs.existsSync(transformedDir)) {
+  fs.mkdirSync(transformedDir);
+}
+
+app.get("api/uploads/images/{filename}", async (req, res) => {
+  const filename = req.params.filename;
+  const filePath = db.get(filename);
+
+  if (!filePath) {
+    return res.status(400).send({ message: "File not found." });
+  }
+
+  const formatUrl = `/${filename}`;
+  let editPath = processed.get(formatUrl);
+
+  if (editPath) {
+    return res.sendFile(path.resolve(editPath));
+  }
+
+  res.sendFile(path.resolve(filePath));
+});
 
 //auth
 // app.get("/api/auth", auth.listAuth);
@@ -77,15 +143,17 @@ app.put("/api/employees/:employeeId/image", employees.updateImage);
 app.delete("/api/employees/:employeeId/image", employees.deleteImage);
 
 //profiles
-app.get("/api/profiles", profiles.list);
+// app.get("/api/profiles", profiles.list);
 
-app.get("/api/profiles/:id", profiles.getById);
+app.get("/api/profiles/current", profiles.getById);
 
-app.post("/api/profiles", profiles.add);
+// app.post("/api/profiles", profiles.add);
 
-app.put("/api/profiles/:id", profiles.update);
+app.put("/api/profiles/edit", profiles.update);
 
-app.delete("/api/profiles/:id", profiles.delete);
+app.put("/api/profiles/image", profiles.updateImage);
+
+app.delete("/api/profiles/image", profiles.delete);
 
 //projects
 app.get("/api/projects", projects.list);
