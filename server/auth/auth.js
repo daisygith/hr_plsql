@@ -1,14 +1,25 @@
 "use strict";
 
-const {
-  getAuthUsers,
-  addAuthUser,
-  updateAuthUser,
-  deleteAuthUser,
-} = require("./accessData");
-exports.listAuth = async function (req, res) {
-  const data = await getAuthUsers();
-  res.send(data);
+const { getAuthUser, addAuthUser, getUserRoles } = require("./accessData");
+const jwt = require("jsonwebtoken");
+const { secret } = require("./config");
+
+exports.login = async function (req, res) {
+  const { username, password } = req.body;
+  const data = await getAuthUser(username, password);
+  if (data) {
+    const roles = await getUserRoles(data.id);
+    const token = jwt.sign({ username }, secret, { expiresIn: "4H" });
+    return res.json({
+      token,
+      id: data.id,
+      username: data.username,
+      email: data.email,
+      employeeId: null,
+      roles,
+    });
+  }
+  res.status(401).json({ message: "Invalid credentials" });
 };
 
 exports.addAuth = async function (req, res) {

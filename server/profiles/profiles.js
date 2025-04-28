@@ -7,10 +7,10 @@ const {
   updateProfile,
   deleteProfile,
 } = require("./accessData");
-exports.list = async function (req, res) {
-  const data = await getProfiles();
-  res.send(data);
-};
+// exports.list = async function (req, res) {
+//   const data = await getProfiles();
+//   res.send(data);
+// };
 
 exports.getById = async function (req, res) {
   const id = req.params.id;

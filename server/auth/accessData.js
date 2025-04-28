@@ -3,15 +3,41 @@ const { connection, options } = require("../db/config");
 const { lowercaseKeys } = require("../utils");
 
 //users
-exports.getAuthUsers = async function () {
+exports.getAuthUser = async function (username, password) {
   let conn;
 
   try {
     conn = conn = await connection();
 
-    const result = await conn.execute("select * from users", [], options);
+    const result = await conn.execute(
+      "select * from users where username =:username and password = :password",
+      [username, password],
+      options,
+    );
 
-    return result.rows.map((row) => lowercaseKeys(row));
+    return lowercaseKeys(result.rows[0]);
+  } catch (err) {
+    console.log("Err", err);
+  } finally {
+    if (conn) {
+      await conn.close();
+    }
+  }
+};
+
+exports.getUserRoles = async function (userId) {
+  let conn;
+
+  try {
+    conn = conn = await connection();
+
+    const result = await conn.execute(
+      "select r.name from roles r INNER JOIN user_roles ur ON ur.role_id = r.id where ur.user_id =:userId",
+      [userId],
+      options,
+    );
+
+    return result.rows.map((row) => row["NAME"]);
   } catch (err) {
     console.log("Err", err);
   } finally {
