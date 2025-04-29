@@ -1,0 +1,16 @@
+app-projects-list {
+  .mat-mdc-mini-fab {
+    background-color: transparent;
+  }
+
+  .mat-column-name {
+    min-width: 200px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+  }
+
+  .mat-column-actions {
+    width: 58px;
+  }
+}

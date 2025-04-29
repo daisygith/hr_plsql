@@ -1,0 +1,71 @@
+app-manage-project {
+  width: 100%;
+
+  .manage-project {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    .manage-project-content {
+      margin: 16px 16px 0 16px;
+    }
+
+    .manage-project-content.title {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 0 10px 0;
+    }
+
+    .manage-project-icon {
+      color: var(--button-app-color);
+      border: 1px solid var(--background-element);
+      background-color: var(--main-color-text);
+      border-radius: 14px;
+      margin: 0 8px 0 0;
+    }
+
+    .manage-project-title {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .line1 {
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    button#add-task-button {
+      border-radius: 10px;
+    }
+
+    button#add-task-button {
+      background-color: var(--button-app-color);
+      width: 200px;
+    }
+
+    .manage-project-content.list {
+      border: 1px solid var(--border-app-element);
+      border-radius: 20px 20px 0 0;
+      border-bottom: none;
+      min-height: 100vh;
+      height: auto;
+      background-color: var(--main-color-text);
+    }
+
+    .list-additional-elem {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    div#mat-tab-label-0-0,
+    div#mat-tab-label-0-1 {
+      width: 250px;
+    }
+  }
+}

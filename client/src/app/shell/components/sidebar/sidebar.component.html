@@ -1,0 +1,84 @@
+<div class="sidebar-left">
+  <div class="sidebar top">
+    <div class="logo">HR</div>
+    <a routerLink="/user/edit" routerLinkActive="active" id="user-link">
+      <div class="avatar">
+        <div class="avatar-img">
+          <img
+            id="id-avatar"
+            [ngSrc]="imageUrl || 'assets/image/default-avatar.png'"
+            alt="default avatar"
+            height="40"
+            width="40"
+          />
+        </div>
+        <div class="user-data">
+          <div class="user-name">{{ user?.username }}</div>
+          <div class="user-staffId">{{ user?.id }}</div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="sidebar middle">
+    <div class="title-menu">{{ "SIDEBAR.MAIN_MENU" | translate }}</div>
+    <div class="menu-element">
+      <a routerLink="/dashboard" routerLinkActive="active">
+        <mat-icon class="material-symbols-outlined" id="dashboard-icon"
+          >dashboard</mat-icon
+        >
+        <div class="element-title">{{ "SIDEBAR.DASHBOARD" | translate }}</div>
+      </a>
+    </div>
+    <div class="menu-element">
+      <a routerLink="/employee" routerLinkActive="active">
+        <mat-icon class="material-symbols-outlined" id="groups-icon"
+          >groups</mat-icon
+        >
+        <div class="element-title">{{ "SIDEBAR.EMPLOYEE" | translate }}</div>
+      </a>
+    </div>
+    <div class="menu-element" *hasRole="canUsersRoles">
+      <a routerLink="/users" routerLinkActive="active">
+        <mat-icon class="material-symbols-outlined" id="users-list-icon">
+          user_attributes
+        </mat-icon>
+        <div class="element-title">{{ "SIDEBAR.USERS_LIST" | translate }}</div>
+      </a>
+    </div>
+    <div class="menu-element" *hasRole="canDepartmentsRoles">
+      <a routerLink="/departments" routerLinkActive="active">
+        <mat-icon class="material-symbols-outlined" id="department-icon">
+          category
+        </mat-icon>
+        <div class="element-title">{{ "SIDEBAR.DEPARTMENTS" | translate }}</div>
+      </a>
+    </div>
+    <div class="menu-element" *hasRole="canDepartmentsRoles">
+      <a routerLink="/projects" routerLinkActive="active">
+        <mat-icon class="material-symbols-outlined" id="project-icon">
+          workspaces
+        </mat-icon>
+        <div class="element-title">{{ "SIDEBAR.PROJECTS" | translate }}</div>
+      </a>
+    </div>
+  </div>
+  <div class="sidebar bottom">
+    <div class="title-menu">{{ "SIDEBAR.OTHER" | translate }}</div>
+    <div class="menu-element">
+      <a routerLink="/setting" routerLinkActive="active">
+        <mat-icon class="material-symbols-outlined" id="settings-icon"
+          >settings</mat-icon
+        >
+        <div class="element-title">{{ "SIDEBAR.SETTINGS" | translate }}</div>
+      </a>
+    </div>
+    <div class="menu-element">
+      <a (click)="onLogout()">
+        <mat-icon class="material-symbols-outlined" id="logout-icon"
+          >logout</mat-icon
+        >
+        <div class="element-title">{{ "SIDEBAR.LOGOUT" | translate }}</div>
+      </a>
+    </div>
+  </div>
+</div>

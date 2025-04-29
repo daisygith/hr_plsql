@@ -1,0 +1,39 @@
+app-manage-employee {
+  .mat-mdc-mini-fab {
+    background-color: transparent;
+  }
+
+  .mat-column-name {
+    min-width: 200px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+  }
+  .mat-column-phone {
+    min-width: 160px;
+  }
+
+  .mat-column-department,
+  .mat-column-position {
+    min-width: 160px;
+  }
+  .mat-column-typeOfContract {
+    min-width: 200px;
+  }
+
+  .mat-column-actions {
+    width: 58px;
+  }
+
+  mat-chip#chip-type.type {
+    &.it {
+      background-color: var(--it-department);
+    }
+    &.hr {
+      background-color: var(--hr-department);
+    }
+    &.designer {
+      background-color: var(--designer-department);
+    }
+  }
+}

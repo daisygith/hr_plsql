@@ -1,0 +1,77 @@
+app-request-time-off {
+  .mat-mdc-mini-fab {
+    background-color: transparent;
+  }
+
+  .mat-column-employeeName {
+    min-width: 200px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+  }
+
+  .mat-column-leaveType {
+    min-width: 150px;
+  }
+
+  .mat-column-startDate,
+  .mat-column-endDate {
+    min-width: 130px;
+  }
+
+  .mat-column-actions {
+    width: 58px;
+    justify-items: end;
+  }
+
+  button#button-approve,
+  button#button-reject {
+    padding: 4px 18px 4px 18px;
+    height: 34px;
+    width: 100px;
+    border-radius: 10px;
+  }
+
+  button#button-approve {
+    border-color: var(--positive-element);
+    color: var(--positive-element);
+  }
+
+  button#button-reject {
+    border-color: var(--negative-element);
+    color: var(--negative-element);
+  }
+
+  mat-chip#chip-status.status {
+    &.approve {
+      background-color: var(--positive-status);
+    }
+    &.reject {
+      background-color: var(--negative-border);
+    }
+    &.pending {
+      background-color: var(--pending-status-color);
+    }
+    &.draft {
+      border: 1px solid var(--border-app-element);
+    }
+  }
+
+  mat-chip#chip-type.type {
+    &.sick_leave {
+      background-color: var(--positive-status);
+    }
+    &.annual_leave {
+      background-color: var(--annual-color);
+    }
+    &.paid_time_off {
+      background-color: var(--paid-time-off-color);
+    }
+    &.unpaid_leave {
+      background-color: var(--unpaid-color);
+    }
+    &.casual_leave {
+      background-color: var(--casual-color);
+    }
+  }
+}

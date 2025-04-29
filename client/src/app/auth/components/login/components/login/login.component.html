@@ -1,0 +1,115 @@
+<div class="login">
+  <div class="title-page">{{ "LOGIN.TITLE" | translate }}</div>
+  <div class="login-main-part">
+    <div class="login-frame">
+      <form [formGroup]="loginForm">
+        <div class="login-part top">
+          <div class="title">{{ "LOGIN.TITLE_LOGIN" | translate }}</div>
+        </div>
+        <div class="login-part middle">
+          <div class="input-username">
+            <div class="input-title">
+              {{ "LOGIN.USERNAME" | translate }}
+            </div>
+            <mat-form-field class="input-full-width">
+              <input
+                matInput
+                id="username"
+                type="text"
+                is="username"
+                formControlName="username"
+              />
+            </mat-form-field>
+            @if (username.invalid && username.dirty) {
+              <mat-error>{{ "LOGIN.REQUIRED.USERNAME" | translate }}</mat-error>
+            }
+          </div>
+          <div class="elements-content">
+            <div class="input-newPassword">
+              <div class="input-title">
+                {{ "LOGIN.PASSWORD" | translate }}
+              </div>
+              <mat-form-field class="input-full-width">
+                <input
+                  matInput
+                  type="text"
+                  [type]="hide() ? 'password' : 'text'"
+                  id="password"
+                  is="password"
+                  formControlName="password"
+                  required
+                />
+                <button
+                  mat-icon-button
+                  matSuffix
+                  (click)="clickEvent($event)"
+                  [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide()"
+                >
+                  <mat-icon id="newPassword-icon">{{
+                    hide() ? "visibility_off" : "visibility"
+                  }}</mat-icon>
+                </button>
+              </mat-form-field>
+              @if (password.invalid && password.dirty) {
+                @if (password.hasError("required")) {
+                  <mat-error>{{
+                    "LOGIN.REQUIRED.PASSWORD_REQUIRED" | translate
+                  }}</mat-error>
+                } @else if (password.hasError("pattern")) {
+                  <mat-error>{{
+                    "LOGIN.REQUIRED.PASSWORD_INVALID" | translate
+                  }}</mat-error>
+                }
+              }
+            </div>
+          </div>
+        </div>
+        <div class="login-part bottom">
+          <div class="login-button-row">
+            <button
+              mat-flat-button
+              id="login-button"
+              type="submit"
+              label="Login"
+              [disabled]="loginForm.invalid"
+              (click)="onLogin()"
+            >
+              {{ "LOGIN.BUTTON.LOGIN" | translate }}
+            </button>
+          </div>
+          <div class="language-select">
+            <button mat-button [matMenuTriggerFor]="menu" id="language-button">
+              {{ translate.currentLang }}
+            </button>
+            <mat-menu #menu="matMenu">
+              <button
+                mat-menu-item
+                *ngFor="let lang of translate.getLangs()"
+                (click)="translate.use(lang)"
+              >
+                {{ lang }}
+              </button>
+            </mat-menu>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="registration-link">
+      <div class="registration-title">
+        {{ "LOGIN.REGISTRATION.TITLE" | translate }}
+      </div>
+      <div class="registration-button">
+        <button
+          mat-flat-button
+          routerLink="/registration"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          id="registration-button"
+        >
+          {{ "LOGIN.REGISTRATION.BUTTON" | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

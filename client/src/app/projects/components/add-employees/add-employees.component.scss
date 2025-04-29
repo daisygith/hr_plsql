@@ -1,0 +1,79 @@
+app-add-employees {
+  .add-task-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .add-task-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .add-task-title {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 20px 8px 0 0;
+  }
+
+  .input-title {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 20px 0 10px 0;
+  }
+
+  button#button-close {
+    margin: 0 0 0 0;
+    min-width: 0;
+    padding: 0 14px 0 14px;
+    color: var(--main-color);
+  }
+
+  button#button-save {
+    border-radius: 10px;
+    background-color: var(--border-app-element);
+    border: 1px solid var(--positive-element);
+    color: var(--positive-element);
+  }
+
+  button#button-close:hover {
+    background-color: var(--border-app-element);
+  }
+
+  button#button-save:hover {
+    background-color: var(--positive-element);
+    color: var(--main-color-text);
+  }
+
+  .mat-mdc-button > .mat-icon {
+    margin-right: unset;
+  }
+
+  h2 {
+    font-family: "Inter", sans-serif !important;
+  }
+
+  .mat-elevation-z8 {
+    box-shadow: none;
+  }
+
+  td.mat-mdc-cell.mdc-data-table__cell.cdk-cell.cdk-column-select.mat-column-select.ng-star-inserted {
+    width: 0;
+  }
+
+  input#input-filter {
+    margin: 0 0 0 30px;
+    padding: 8px 0 0 0;
+  }
+
+  mat-icon#filter-icon {
+    left: -18px;
+    position: absolute;
+    padding: 8px 0 0 14px;
+    color: var(--border-app-element);
+  }
+
+  .list-additional-elem {
+    width: 50%;
+    float: right;
+  }
+}

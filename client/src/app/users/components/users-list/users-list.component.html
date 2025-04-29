@@ -1,0 +1,91 @@
+<div class="list-toolbar">
+  <div class="list-title">
+    {{ "USERS_LIST.MANAGE_USERS" | translate }}
+  </div>
+  <div class="list-additional-elem">
+    <mat-form-field class="input-full-width">
+      <mat-icon id="filter-icon">filter_alt</mat-icon>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        type="text"
+        [placeholder]="'EMPLOYEE.FILTER' | translate"
+        id="input-filter"
+      />
+    </mat-form-field>
+  </div>
+</div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Employee userName Column -->
+  <ng-container matColumnDef="username">
+    <th mat-header-cell *matHeaderCellDef>
+      {{ "MANAGE_USER.USERNAME" | translate }}
+    </th>
+    <td mat-cell *matCellDef="let element">
+      <img
+        [ngSrc]="
+          (element?.image | imageToken) || 'assets/image/default-avatar.png'
+        "
+        alt="default avatar"
+        height="30"
+        width="30"
+        id="picture-avatar"
+      />
+      {{ element.username }}
+    </td>
+  </ng-container>
+
+  <!-- Email Number Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>
+      {{ "MANAGE_USER.EMAIL" | translate }}
+    </th>
+    <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+  </ng-container>
+
+  <!-- Role Column -->
+  <ng-container matColumnDef="roles">
+    <th mat-header-cell *matHeaderCellDef>
+      {{ "MANAGE_USER.ROLE" | translate }}
+    </th>
+    <td mat-cell *matCellDef="let element">
+      @for (item of element?.roles ?? []; track item.id) {
+        {{ item.name }}
+      } @empty {
+        <span>-</span>
+      }
+    </td>
+  </ng-container>
+
+  <!-- Actions Type Column -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <div class="row-actions">
+        <button
+          mat-mini-fab
+          id="button-details"
+          [routerLink]="['/users', element.id]"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button
+          mat-mini-fab
+          id="button-more"
+          (click)="openDialog(element, $event)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr
+    mat-row
+    *matRowDef="let row; columns: displayedColumns"
+    [routerLink]="['/users', row.id]"
+  ></tr>
+</table>

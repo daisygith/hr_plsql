@@ -1,0 +1,303 @@
+{
+  "ADD_EMPLOYEE": {
+    "TITLE1": "Profil pracownika",
+    "TITLE2": "Utwórz nowy profil pracownika",
+    "CHANGE_PROFILE": {
+      "BUTTON": {
+        "ADD": "Dodaj",
+        "REMOVE": "Usuń"
+      },
+      "INFO": {
+        "OK": "Zapisano pomyślnie",
+        "OK_UPDATE": "Zmiany zapisano pomyślnie",
+        "INVALID": "Nie udało dodać się nowego pracownika",
+        "INVALID_UPDATE": "Nie udało się zapisać zmian"
+      },
+      "INFO_PICTURE": "Dozwolony format plików JPG, GIF or PNG. Max. rozmiar 800K.",
+      "SUBTITLE": "Dodaj zdjęcie profilowe",
+      "TITLE": "Dodaj Profil"
+    },
+    "PERSONAL_DETAILS": {
+      "ADDRESS": "Adres",
+      "BUTTON": {
+        "SAVE_CHANGES": "Zapisz"
+      },
+      "DEPARTMENT": {
+        "TITLE": "Dział",
+        "HR": "HR",
+        "IT": "IT",
+        "DESIGN": "DESIGN"
+      },
+      "NAME": "Imię i Nazwisko",
+      "PHONE": "Telefon",
+      "POSITION": {
+        "TITLE": "Stanowisko pracy",
+        "JUNIOR": "Junior",
+        "MID": "Mid",
+        "SENIOR": "Senior"
+      },
+      "SUBTITLE": "Aby zmienić dane osobowe użytkownika, edytuj i zapisz je tutaj",
+      "STAFF_ID": "Identyfikator Pracownika",
+      "TITLE": "Dane Osobowe",
+      "TYPE_OF_CONTRACT": {
+        "B2B": "B2B",
+        "CONTRACT_FOR_SPECIFIC_WORK": "Umowa o dzieło",
+        "FULL_TIME_CONTRACT": "Umowa o pracę na pełny etat",
+        "FEE_FOR_TASK_AGREEMENT": "Umowa zlecenie",
+        "TITLE": "Rodzaj umowy"
+      }
+    }
+  },
+  "ADD_TASK": {
+    "BUTTON": {
+      "ADD_EMPLOYEES": "Dodaj pracowników",
+      "ADD_TASK": "Dodaj zadanie",
+      "SAVE": "Zapisz"
+    },
+    "COMMENT": "Komentarz",
+    "EMPLOYEE": "Pracownik",
+    "ESTIMATED_WORK_TIME": "Szacowany czas pracy",
+    "ESTIMATED_TASK_TIME_END": "Przewidywany czas zakońćzenia zadania",
+    "DESCRIPTION": "Opis",
+    "MANAGE_PROJECT": "Zarządzaj projektem",
+    "MANAGE_TASKS": "Zarządzaj zadaniami",
+    "NAME_OF_TASK": "Nazwa zadania",
+    "PRIORITY": {
+      "HIGH": "Wysoki",
+      "NORMAL": "Normalny",
+      "LOW": "Niski"
+    },
+    "PRIORITY_STATUS": "Priorytet",
+    "STATUS": {
+      "NEW": "Oczekujące",
+      "WORK_IN_PROGRESS": "W toku",
+      "DONE": "Zakończone"
+    },
+    "STATUS_TITLE": "Status",
+    "START_DATE": "Data założenia zadania",
+    "TITLE1": "Zadanie: {{value}}",
+    "TITLE2": "Dodaj nowe zadanie",
+    "TITLE_TASK1": "Dane zadania",
+    "TITLE_TASK2": "Aby zmienić dane zadania, edytuj i zapisz je tutaj",
+    "TYPE_OF_TASK": {
+      "NORMAL": "Normalne",
+      "FAULT": "Błąd"
+    },
+    "TYPE_OF_TASK_TITLE": "Typ zadania"
+  },
+  "DATA": {
+    "REMOVE_OK": "Dane usunięto poprawnie",
+    "REMOVE_FAIL": "Danych nie można usunąć"
+  },
+  "DEPARTMENTS": {
+    "BUTTON": {
+      "ADD_DEPARTMENT": "Dodaj dział"
+    },
+    "DATA_OF_DEPARTMENT": "Dane działu",
+    "DEPARTMENT": "Dział {{value}}",
+    "NAME": "Nazwa działu",
+    "SUBTITLE": "Zarządzaj działami",
+    "TITLE": "Działy",
+    "TITLE2": "Dodaj nowy dział"
+  },
+  "EMPLOYEE": {
+    "ADD_EMPLOYEE": "Dodaj pracownika",
+    "APPLY_REQUEST_TIME_OFF": "Złóż wniosek o urlop",
+    "FILTER": "Filtruj",
+    "MANAGE_EMPLOYEE": "Zarządzaj pracownikami",
+    "REQUEST_TIME_OFF": "Wniosek urlopowy",
+    "SUBTITLE": "Zarządzaj pracownikami",
+    "TITLE": "Pracownicy"
+  },
+  "FILE": {
+    "DELETE_DATA": "Usunąć dane?",
+    "QUESTION": "Czy na pewno chcesz usunąć dane?",
+    "NO": "Nie",
+    "YES": "Tak"
+  },
+  "LOGIN": {
+    "BUTTON": {
+      "LOGIN": "Zaloguj"
+    },
+    "EMAIL": "Email",
+    "INFO": {
+      "OK": "Zalogowano pomyślnie",
+      "INVALID": "Coś poszło nie tak"
+    },
+    "LOGOUT": "Wylogowano pomyślnie",
+    "PASSWORD": "Hasło",
+    "REGISTRATION": {
+      "BUTTON": "Załóż konto",
+      "TITLE": "Nie masz konta? Zarejestruj się!"
+    },
+    "REQUIRED": {
+      "USERNAME": "Nazwa użytkownika jest wymagana",
+      "PASSWORD_REQUIRED": "Hasło jest wymagane",
+      "PASSWORD_INVALID": "Hasło jest błędne"
+    },
+    "TITLE": "Witaj w HR!",
+    "TITLE_LOGIN": "Logowanie",
+    "USERNAME": "Nazwa użytkownika"
+  },
+  "MANAGE_EMPLOYEE": {
+    "CONTACT_TYPE": "Typ kontaktu",
+    "EMPLOYEE_NAME": "Imię i Nazwisko",
+    "DEPARTMENT": "Dział",
+    "JOB_TITLE": "Tytuł służbowy",
+    "PHONE_NUMBER": "Numer Telefonu"
+  },
+  "MANAGE_PROJECT": {
+    "EMPLOYEES": "Pracownicy przypisani do projektu"
+  },
+  "MANAGE_USER": {
+    "EMAIL": "E-mail",
+    "USERNAME": "Nazwa użytkownika",
+    "ROLE": "Rola",
+    "ROLES": {
+      "ADMIN": "Admin",
+      "MODERATOR": "Moderator",
+      "USER": "Użytkownik"
+    },
+    "TITLE1": "Profil użytkownika",
+    "TITLE2": "Utwórz nowy profil użytkownika"
+  },
+  "NAVBAR": {
+    "SEARCH_HERE": "Szukaj"
+  },
+  "PROJECTS": {
+    "BUTTON": {
+      "ADD_DEPARTMENT": "Dodaj projekt"
+    },
+    "DATA_OF_PROJECT": "Dane projektu",
+    "NAME": "Nazwa projektu",
+    "PROJECT": "Projekt: {{value}}",
+    "SUBTITLE": "Zarządzaj projektami",
+    "TITLE": "Projekty",
+    "TITLE2": "Dodaj nowy project"
+  },
+  "REGISTRATION": {
+    "BUTTON": {
+      "SING_UP": "Zarejestruj się"
+    },
+    "CONFIRM_PASSWORD": "Potwierdź hasło",
+    "EMAIL": "Email",
+    "INFO": {
+      "OK": "Zarejestrowano pomyślnie",
+      "INVALID": "Coś poszło nie tak"
+    },
+    "PASSWORD": "Hasło",
+    "REQUIRED": {
+      "CONFIRM_PASSWORD_REQUIRED": "Wymagane powtórzenie hasła",
+      "EMAIL_REQUIRED": "Email jest wymagany",
+      "EMAIL_INVALID": "Email jest niepoprawny",
+      "USERNAME": "Nazwa użytkownika jest wymagana",
+      "PASSWORD_MISMATCH": "Niezgodność haseł",
+      "PASSWORD_REQUIRED": "Hasło jest wymagane",
+      "PASSWORD_INVALID": "Hasło jest błędne"
+    },
+    "TITLE": "Załóż konto w HR!",
+    "TITLE_LOGIN": "Założ konto",
+    "USERNAME": "Nazwa użytkownika"
+  },
+  "REQUEST_TIME_OFF": {
+    "BUTTON": {
+      "APPROVE": "Akceptuj",
+      "DRAFT_REQUEST": "Zapisz jako wersję roboczą",
+      "EDIT": "Edycja",
+      "REJECT": "Odrzuć",
+      "SUBMIT_REQUEST": "Złóż wniosek"
+    },
+    "DAYS": "Dni",
+    "DATE": {
+      "START_DATE": "Data początkowa",
+      "END_DATE": "Data końcowa"
+    },
+    "EMPLOYEE_NAME": "Imię i Nazwisko",
+    "LEAVE_FROM": "Początek urlopu",
+    "LEAVE_TO": "Koniec urlopu",
+    "LEAVE_TYPE": "Rodzaj urlopu",
+    "LEAVE_TYPES": {
+      "ANNUAL_LEAVE": "Urlop roczny",
+      "CASUAL_LEAVE": "Urlop okolicznościowy",
+      "PAID_TIME_OFF": "Urlop płatny",
+      "SICK_LEAVE": "Urlop chorobowy",
+      "UNPAID_LEAVE": "Urlop bezpłatny"
+    },
+    "REASON": "Uzasadnienie",
+    "SELECT": "Wybierz",
+    "STAT": {
+      "APPROVE": "Zaakceptowany",
+      "DRAFT": "Wersja robocza",
+      "PENDING": "W toku",
+      "REJECT": "Odrzucony"
+    },
+    "STATUS": "Status",
+    "TITLE": "Wniosek urlopowy"
+  },
+  "SIDEBAR": {
+    "EMPLOYEE": "Pracownicy",
+    "DASHBOARD": "Tablica",
+    "DEPARTMENTS": "Działy",
+    "LOGOUT": "Wyloguj",
+    "MAIN_MENU": "MENU GŁÓWNE",
+    "OTHER": "INNE",
+    "PROJECTS": "Projekty",
+    "SETTINGS": "Ustawienia",
+    "STAFF_LIST": "Lista rzeczy",
+    "USERS_LIST": "Użytkownicy"
+  },
+  "USER": {
+    "CHANGE_PASSWORD": {
+      "SUBTITLE": "Potwierdź zmianę hasła",
+      "TITLE": "Zmiana hasła",
+      "NEW_PASSWORD": "Nowe hasło",
+      "CONFIRM_PASSWORD": "Potwierdź hasło"
+    },
+    "CHANGE_PROFILE": {
+      "BUTTON": {
+        "UPDATE": "Aktualizacja",
+        "REMOVE": "Usuń"
+      },
+      "INFO_PICTURE": "Dozwolony format plików JPG, GIF or PNG. Max. rozmiar 800K.",
+      "SUBTITLE": "Zmień zdjęcie profilowe",
+      "TITLE": "Zmień Profil"
+    },
+    "CURRENT_PASSWORD": "Aktualne hasło",
+    "INFO": {
+      "OK": "Zalogowano pomyślnie",
+      "INVALID": "Coś poszło nie tak"
+    },
+    "TITLE": "Edycja profilu użytkownika",
+    "PERSONAL_DETAILS": {
+      "ADDRESS": "Adres",
+      "BUTTON": {
+        "SAVE_CHANGES": "Zapisz"
+      },
+      "DESTINATION": {
+        "TITLE": "Miejsce docelowe",
+        "OPTION_1": "Opcja_1",
+        "OPTION_2": "Opcja_2"
+      },
+      "EMAIL": "Email",
+      "GENDER": {
+        "FEMALE": "Kobieta",
+        "OTHER": "Inne",
+        "MALE": "Mężczyzna",
+        "TITLE": "Płeć"
+      },
+      "NAME": "Imię i Nazwisko",
+      "PHONE": "Telefon",
+      "SUBTITLE": "Aby zmienić dane osobowe użytkownika, edytuj i zapisz je tutaj",
+      "STAFF_ID": "Identyfikator Pracownika",
+      "TITLE": "Dane Osobowe"
+    }
+  },
+  "USERS_LIST": {
+    "BUTTON": {
+      "ADD_USER": "Dodaj użytkownika"
+    },
+    "MANAGE_USERS": "Zarządzaj użytkownikami",
+    "SUBTITLE": "Zarządzaj użytkownikami",
+    "TITLE": "Użytkownicy"
+  }
+}

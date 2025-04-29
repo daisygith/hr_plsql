@@ -1,0 +1,58 @@
+<div class="add-project">
+  <div class="add-project-content title">
+    <div class="add-project-content title left">
+      <div class="add-project-icon">
+        <mat-icon class="material-symbols-outlined" id="emp-icon"
+          >person_apron</mat-icon
+        >
+      </div>
+
+      <div class="add-project-title">
+        <div class="line1">{{ "PROJECTS.TITLE2" | translate }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="add-project-content elements">
+    <div class="add-project-content bottom" [formGroup]="addProjectGroup">
+      <div class="elements-title">
+        <div class="title-line1">
+          {{ "PROJECTS.DATA_OF_PROJECT" | translate }}
+        </div>
+      </div>
+      <div class="add-project-content info-personal">
+        <div class="info-personal-left">
+          <div class="input-title">
+            {{ "PROJECTS.NAME" | translate }}
+          </div>
+          <mat-form-field class="input-full-width">
+            <input
+              matInput
+              type="text"
+              is="name"
+              formControlName="name"
+              [placeholder]="'PROJECTS.NAME' | translate"
+              id="input-name-personal"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="save-changes">
+        <div class="button-save">
+          <button
+            mat-stroked-button
+            routerLink="/projects"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            id="button-save"
+            (click)="saveData()"
+          >
+            {{
+              "ADD_EMPLOYEE.PERSONAL_DETAILS.BUTTON.SAVE_CHANGES" | translate
+            }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

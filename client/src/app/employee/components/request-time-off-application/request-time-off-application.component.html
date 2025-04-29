@@ -1,0 +1,180 @@
+<div class="request-time-off-app" xmlns="http://www.w3.org/1999/html">
+  <div class="request-time-off-app-content title">
+    <div class="request-time-off-app-content title left">
+      <div class="request-time-off-app-icon">
+        <mat-icon class="material-symbols-outlined" id="emp-icon"
+          >date_range</mat-icon
+        >
+      </div>
+      <div class="request-time-off-app-title">
+        <div class="line1">{{ "REQUEST_TIME_OFF.TITLE" | translate }}</div>
+      </div>
+    </div>
+    <div class="request-time-off-app-content title right">
+      <div *ngIf="requestById?.status == 'PENDING'; then buttonView"></div>
+      <ng-template #buttonView>
+        <div class="button-add" *hasRole="canChangeStatusRequestTimeOff">
+          <button
+            mat-stroked-button
+            type="submit"
+            id="button-approve"
+            routerLink="/employee"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            (click)="onApproveData(id)"
+          >
+            {{ "REQUEST_TIME_OFF.BUTTON.APPROVE" | translate }}
+          </button>
+        </div>
+        <div class="button-add" *hasRole="canChangeStatusRequestTimeOff">
+          <button
+            mat-stroked-button
+            type="submit"
+            id="button-reject"
+            routerLink="/employee"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            (click)="onRejectData(id)"
+          >
+            {{ "REQUEST_TIME_OFF.BUTTON.REJECT" | translate }}
+          </button>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  <form [formGroup]="requestTimeOffFormGroup">
+    <div class="request-time-off-app-content elements">
+      <div class="request-time-off-app-content top">
+        <div class="elements top left request">
+          <div class="elements-content columns">
+            <div class="element-content-left">
+              <div class="elements-title">
+                <div class="title-line">
+                  {{ "REQUEST_TIME_OFF.TITLE" | translate }}
+                </div>
+              </div>
+              <div class="elements-date">
+                <mat-form-field>
+                  <mat-date-range-input>
+                    <input
+                      matStartDate
+                      id="dateRange1"
+                      [placeholder]="
+                        'REQUEST_TIME_OFF.DATE.START_DATE' | translate
+                      "
+                      formControlName="startDate"
+                    />
+                    <input
+                      matEndDate
+                      id="dateRange2"
+                      [placeholder]="
+                        'REQUEST_TIME_OFF.DATE.END_DATE' | translate
+                      "
+                      formControlName="endDate"
+                    />
+                  </mat-date-range-input>
+                </mat-form-field>
+              </div>
+              <div class="elements-calendar">
+                <mat-card class="calendar">
+                  <mat-calendar
+                    (selectedChange)="_onSelectedChange($event)"
+                    [selected]="selectedDateRange"
+                  ></mat-calendar>
+                </mat-card>
+              </div>
+            </div>
+
+            <div class="element-content-right">
+              <div class="element-request">
+                <div class="elements-title">
+                  <div class="title-line">
+                    {{ "REQUEST_TIME_OFF.LEAVE_TYPE" | translate }}
+                  </div>
+                  <mat-form-field class="input-full-width">
+                    <mat-select
+                      type="text"
+                      is="leaveType"
+                      formControlName="leaveType"
+                      [placeholder]="'REQUEST_TIME_OFF.SELECT' | translate"
+                    >
+                      <mat-option
+                        *ngFor="let leaveType of leaveType"
+                        [value]="leaveType"
+                      >
+                        {{
+                          "REQUEST_TIME_OFF.LEAVE_TYPES." + leaveType
+                            | translate
+                        }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="element-request">
+                <div class="elements-title">
+                  <div class="title-line">
+                    {{ "REQUEST_TIME_OFF.EMPLOYEE_NAME" | translate }}
+                  </div>
+                  <mat-form-field class="input-full-width">
+                    <mat-select
+                      type="text"
+                      is="employeeId"
+                      formControlName="employeeId"
+                      [placeholder]="'REQUEST_TIME_OFF.SELECT' | translate"
+                    >
+                      <mat-option
+                        *ngFor="let employee of dataSource"
+                        [value]="employee.id"
+                      >
+                        {{ employee.name }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="element-request">
+                <div class="elements-title">
+                  <div class="title-line">
+                    {{ "REQUEST_TIME_OFF.REASON" | translate }}
+                  </div>
+                  <mat-form-field class="input-full-width">
+                    <input
+                      matInput
+                      type="text"
+                      is="reason"
+                      formControlName="reason"
+                      id="reason-input"
+                    />
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="element-request button-change">
+                <div class="button-submit">
+                  <button
+                    *hasRole="canSaveRequestTimeOffRoles"
+                    mat-stroked-button
+                    type="submit"
+                    id="button-draft"
+                    (click)="draftData()"
+                  >
+                    {{ "REQUEST_TIME_OFF.BUTTON.DRAFT_REQUEST" | translate }}
+                  </button>
+                  <button
+                    *hasRole="canSaveRequestTimeOffRoles"
+                    mat-stroked-button
+                    type="submit"
+                    id="button-submit"
+                    (click)="saveData()"
+                  >
+                    {{ "REQUEST_TIME_OFF.BUTTON.SUBMIT_REQUEST" | translate }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

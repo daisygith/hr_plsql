@@ -1,0 +1,82 @@
+app-registration {
+  .registration {
+    margin: 0 20px 0 20px;
+    padding: 10px 0 0 0;
+  }
+
+  .top-part {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .title-page {
+    margin: 30px 0 0 0;
+    padding: 30px 0 0 0;
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .registration-main-part {
+    margin: auto;
+    width: 850px;
+    padding: 10px 0 10px 10px;
+
+    .registration-frame {
+      margin: 10px 10px 10px 214px;
+      padding: 30px;
+      text-align: left;
+      color: var(--main-color);
+      background-color: var(--main-color-text);
+      border: var(--border-app-element) solid 1px;
+      border-radius: 20px 20px;
+      width: 40%;
+      box-shadow: 0 0 10px 0 var(--button-app-color);
+
+      .registration-part {
+        margin: 10px;
+
+        .registration-button-row {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .input-title {
+    margin: 0 0 6px 0;
+  }
+
+  .login-part.top {
+    padding: 0 0 20px 10px;
+  }
+
+  .mdc-button {
+    width: 100%;
+    background-color: var(--button-color);
+  }
+
+  //registration button
+  button#registration-button {
+    border-radius: 10px;
+    margin: 0 0 16px 0;
+  }
+
+  .language-select {
+    text-align: right;
+  }
+
+  button#language-button {
+    width: 62px;
+  }
+
+  .input-newPassword,
+  .input-username,
+  .input-email {
+    margin: 0 0 14px 0;
+  }
+}

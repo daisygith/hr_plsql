@@ -1,0 +1,166 @@
+<div class="registration">
+  <div class="title-page">{{ "REGISTRATION.TITLE" | translate }}</div>
+  <div class="registration-main-part">
+    <div class="registration-frame">
+      <form [formGroup]="registrationForm">
+        <div class="registration-part top">
+          <div class="title">{{ "REGISTRATION.TITLE_LOGIN" | translate }}</div>
+        </div>
+        <div class="registration-part middle">
+          <div class="input-username">
+            <div class="input-title">
+              {{ "REGISTRATION.USERNAME" | translate }}
+            </div>
+            <mat-form-field class="input-full-width">
+              <input
+                matInput
+                id="username"
+                type="text"
+                is="username"
+                formControlName="username"
+              />
+            </mat-form-field>
+            @if (username.invalid && username.dirty) {
+              <mat-error>{{
+                "REGISTRATION.REQUIRED.USERNAME" | translate
+              }}</mat-error>
+            }
+          </div>
+          <div class="input-email">
+            <div class="input-title">
+              {{ "REGISTRATION.EMAIL" | translate }}
+            </div>
+            <mat-form-field class="input-full-width">
+              <input
+                matInput
+                id="email"
+                type="text"
+                is="email"
+                formControlName="email"
+              />
+            </mat-form-field>
+            @if (email.invalid && email.dirty) {
+              @if (email.hasError("required")) {
+                <mat-error>{{
+                  "REGISTRATION.REQUIRED.EMAIL_REQUIRED" | translate
+                }}</mat-error>
+              } @else if (email.hasError("pattern")) {
+                <mat-error>{{
+                  "REGISTRATION.REQUIRED.EMAIL_INVALID" | translate
+                }}</mat-error>
+              }
+            }
+          </div>
+          <div class="elements-content">
+            <div class="input-newPassword">
+              <div class="input-title">
+                {{ "REGISTRATION.PASSWORD" | translate }}
+              </div>
+              <mat-form-field class="input-full-width">
+                <input
+                  matInput
+                  [type]="hide() ? 'password' : 'text'"
+                  id="password"
+                  type="text"
+                  is="password"
+                  formControlName="password"
+                />
+                <button
+                  mat-icon-button
+                  matSuffix
+                  (click)="clickEvent($event)"
+                  [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide()"
+                >
+                  <mat-icon id="newPassword-icon">{{
+                    hide() ? "visibility_off" : "visibility"
+                  }}</mat-icon>
+                </button>
+              </mat-form-field>
+              @if (password.invalid && password.dirty) {
+                @if (password.hasError("required")) {
+                  <mat-error>{{
+                    "REGISTRATION.REQUIRED.PASSWORD_REQUIRED" | translate
+                  }}</mat-error>
+                } @else if (password.hasError("pattern")) {
+                  <mat-error>{{
+                    "REGISTRATION.REQUIRED.PASSWORD_INVALID" | translate
+                  }}</mat-error>
+                }
+              }
+            </div>
+            <div class="input-newPassword">
+              <div class="input-title">
+                {{ "REGISTRATION.CONFIRM_PASSWORD" | translate }}
+              </div>
+              <mat-form-field class="input-full-width">
+                <input
+                  matInput
+                  [type]="hideConfirm() ? 'password' : 'text'"
+                  id="confirmPassword"
+                  type="text"
+                  is="confirmPassword"
+                  formControlName="confirmPassword"
+                />
+                <button
+                  mat-icon-button
+                  matSuffix
+                  (click)="clickEventConfirm($event)"
+                  [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hideConfirm()"
+                >
+                  <mat-icon id="confirmPassword-icon">{{
+                    hideConfirm() ? "visibility_off" : "visibility"
+                  }}</mat-icon>
+                </button>
+              </mat-form-field>
+              @if (confirmPassword.invalid && confirmPassword.dirty) {
+                <mat-error>{{
+                  "REGISTRATION.REQUIRED.CONFIRM_PASSWORD_REQUIRED" | translate
+                }}</mat-error>
+              }
+
+              @if (
+                registrationForm.hasError("passwordMismatch") &&
+                password.valid &&
+                confirmPassword.valid
+              ) {
+                <mat-error>{{
+                  "REGISTRATION.REQUIRED.PASSWORD_MISMATCH" | translate
+                }}</mat-error>
+              }
+            </div>
+          </div>
+        </div>
+        <div class="registration-part bottom">
+          <div class="registration-button-row">
+            <button
+              mat-flat-button
+              id="registration-button"
+              type="submit"
+              label="Registration"
+              [disabled]="registrationForm.invalid"
+              (click)="onRegistration()"
+            >
+              {{ "REGISTRATION.BUTTON.SING_UP" | translate }}
+            </button>
+          </div>
+          <div class="language-select">
+            <button mat-button [matMenuTriggerFor]="menu" id="language-button">
+              {{ translate.currentLang }}
+            </button>
+            <mat-menu #menu="matMenu">
+              <button
+                mat-menu-item
+                *ngFor="let lang of translate.getLangs()"
+                (click)="translate.use(lang)"
+              >
+                {{ lang }}
+              </button>
+            </mat-menu>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

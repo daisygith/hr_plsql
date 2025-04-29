@@ -1,0 +1,70 @@
+<div class="add-task-title">
+  <h2 mat-dialog-title>{{ "ADD_TASK.BUTTON.ADD_EMPLOYEES" | translate }}</h2>
+  <button mat-button mat-dialog-close id="button-close" (click)="onNoClick()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<mat-dialog-content>
+  <div class="list-additional-elem">
+    <mat-form-field class="input-full-width">
+      <mat-icon id="filter-icon">filter_alt</mat-icon>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        type="text"
+        [placeholder]="'EMPLOYEE.FILTER' | translate"
+        id="input-filter"
+      />
+    </mat-form-field>
+  </div>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- Checkbox Column -->
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox
+            (change)="$event ? toggleAllRows() : null"
+            [checked]="selection.hasValue() && isAllSelected()"
+            [indeterminate]="selection.hasValue() && !isAllSelected()"
+            [aria-label]="checkboxLabel()"
+          >
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox
+            (click)="$event.stopPropagation()"
+            (change)="$event ? selection.toggle(row) : null"
+            [checked]="selection.isSelected(row)"
+            [aria-label]="checkboxLabel(row)"
+          >
+          </mat-checkbox>
+        </td>
+      </ng-container>
+      <!-- Employee Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>
+          {{ "MANAGE_EMPLOYEE.EMPLOYEE_NAME" | translate }}
+        </th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+        (click)="selection.toggle(row)"
+      ></tr>
+    </table>
+    <mat-paginator
+      [pageSizeOptions]="[6]"
+      showFirstLastButtons
+      aria-label="Select page of periodic elements"
+    >
+    </mat-paginator>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button id="button-save" (click)="saveData()">
+    {{ "ADD_TASK.BUTTON.SAVE" | translate }}
+  </button>
+</mat-dialog-actions>

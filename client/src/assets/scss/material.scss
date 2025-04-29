@@ -1,0 +1,24 @@
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+$my-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+    ),
+    typography: (
+      plain-family: Inter,
+      brand-family: Open Sans,
+      bold-weight: 900,
+      medium-weight: 500,
+      regular-weight: 300,
+    ),
+  )
+);
+
+html {
+  @include mat.all-component-themes($my-theme);
+}
+@import "./_material/input";

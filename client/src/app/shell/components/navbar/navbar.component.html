@@ -1,0 +1,30 @@
+<div class="navbar-top">
+  <div class="navbar left">
+    <app-input></app-input>
+  </div>
+  <div class="navbar right">
+    <div class="right-icon">
+      <button mat-mini-fab>
+        <mat-icon
+          class="material-symbols-outlined"
+          id="notification_active-icon"
+        >
+          notifications_active
+        </mat-icon>
+      </button>
+    </div>
+
+    <button mat-button [matMenuTriggerFor]="menu" id="language-button">
+      {{ translate.currentLang }}
+    </button>
+    <mat-menu #menu="matMenu">
+      <button
+        mat-menu-item
+        *ngFor="let lang of translate.getLangs()"
+        (click)="translate.use(lang)"
+      >
+        {{ lang }}
+      </button>
+    </mat-menu>
+  </div>
+</div>

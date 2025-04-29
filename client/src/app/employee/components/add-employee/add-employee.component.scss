@@ -1,0 +1,94 @@
+app-add-employee {
+  width: 100%;
+  .add-employee {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    .add-employee-content.title,
+    .add-employee-content.elements {
+      margin: 16px 16px 0 16px;
+    }
+
+    .add-employee-content.title {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 0 10px 0;
+      border-bottom: 1px solid var(--toolbar-left-border);
+    }
+
+    .add-employee-content.title.left {
+      border: 0;
+    }
+
+    .add-employee-icon {
+      color: var(--button-app-color);
+      border: 1px solid var(--background-element);
+      background-color: var(--main-color-text);
+      border-radius: 14px;
+      margin: 0 8px 0 0;
+    }
+
+    span#emp-icon {
+      font-size: 40px;
+      padding: 4px;
+    }
+
+    .add-employee-title {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .line1 {
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .add-employee-content.elements {
+      display: grid;
+    }
+
+    .input-title {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 20px 0 10px 0;
+    }
+
+    //
+    .address-personal {
+      margin: 0 0 30px 0;
+    }
+
+    .button-save {
+      display: block;
+      float: right;
+    }
+
+    button#button-save {
+      background-color: var(--positive-element);
+      color: var(--main-color-text);
+      border-radius: 10px;
+    }
+
+    span.type {
+      padding: 10px;
+      border-radius: 18px;
+      &.sick_leave {
+        background-color: var(--positive-status);
+      }
+      &.annual_leave {
+        background-color: var(--annual-leave-color);
+      }
+      &.paid_time_off {
+        background-color: var(--paid-time-off-color);
+      }
+      &.unpaid_leave {
+        background-color: var(--unpaid-color);
+      }
+    }
+  }
+}

@@ -1,0 +1,107 @@
+app-edit-user {
+  width: 100%;
+  .edit-user {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    .edit-user-content.title,
+    .edit-user-content.elements {
+      margin: 16px 16px 0 16px;
+    }
+
+    .edit-user-content.top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: 0 0 16px 0;
+    }
+
+    .edit-user-content.title {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 0 10px 0;
+      border-bottom: 1px solid var(--toolbar-left-border);
+    }
+
+    .edit-user-content.title.left {
+      border: 0;
+    }
+
+    .edit-user-icon {
+      color: var(--button-app-color);
+      border: 1px solid var(--background-element);
+      background-color: var(--main-color-text);
+      border-radius: 14px;
+      margin: 0 8px 0 0;
+    }
+
+    span#emp-icon {
+      font-size: 40px;
+      padding: 4px;
+    }
+
+    .edit-user-title {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .line1 {
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .edit-user-content.elements {
+      display: grid;
+    }
+
+    .edit-user-content.elements.top {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .elements.top.left,
+    .elements.top.right {
+      display: grid;
+      grid-template-rows: 80px 1fr;
+      background-color: var(--main-color-text);
+    }
+
+    .left {
+      margin: 0 1vh 0 0;
+    }
+
+    .right {
+      margin: 0 0 0 1vh;
+    }
+
+    .input-title {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 20px 0 10px 0;
+    }
+
+    //
+    .address-personal {
+      margin: 0 0 30px 0;
+    }
+
+    .button-save {
+      display: block;
+      float: right;
+    }
+
+    button#button-save {
+      background-color: var(--positive-element);
+      color: var(--main-color-text);
+      border-radius: 10px;
+      width: 90px;
+    }
+
+    .mat-mdc-text-field-wrapper.mdc-text-field.mdc-text-field--filled.mdc-text-field--no-label.mdc-text-field--disabled {
+      border-radius: 10px;
+    }
+  }
+}

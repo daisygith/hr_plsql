@@ -1,0 +1,94 @@
+<div class="add-manage-project-id">
+  <div class="list-toolbar">
+    <div class="list-title">
+      {{ "ADD_TASK.MANAGE_PROJECT" | translate }}
+    </div>
+    <div class="button-add">
+      <button
+        mat-flat-button
+        id="add-employee-button"
+        (click)="openDialogEmployees()"
+      >
+        <mat-icon>add</mat-icon>
+        {{ "ADD_TASK.BUTTON.ADD_EMPLOYEES" | translate }}
+      </button>
+    </div>
+  </div>
+  <div class="project-id">
+    <div class="project-id-form elements">
+      <div class="project-id-form top" [formGroup]="addProjectGroup">
+        <div class="elements-title">
+          <div class="title-line1">
+            {{ "PROJECTS.DATA_OF_PROJECT" | translate }}
+          </div>
+        </div>
+        <div class="project-id-form info-personal">
+          <div class="info-personal-left">
+            <div class="input-title">
+              {{ "PROJECTS.NAME" | translate }}
+            </div>
+            <mat-form-field class="input-full-width">
+              <input
+                matInput
+                type="text"
+                is="name"
+                formControlName="name"
+                [placeholder]="'PROJECTS.NAME' | translate"
+                id="input-name"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="save-changes">
+          <div class="button-save">
+            <button mat-stroked-button id="button-save" (click)="saveData()">
+              {{
+                "ADD_EMPLOYEE.PERSONAL_DETAILS.BUTTON.SAVE_CHANGES" | translate
+              }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-id-employees elements">
+      <div class="elements-title">
+        <div class="title-line1">
+          {{ "MANAGE_PROJECT.EMPLOYEES" | translate }}
+        </div>
+      </div>
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <!-- Employee Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>
+              {{ "MANAGE_EMPLOYEE.EMPLOYEE_NAME" | translate }}
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.name }}
+            </td>
+          </ng-container>
+          <!--   Details Type Column -->
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element">
+              <div class="row-actions">
+                <button
+                  mat-mini-fab
+                  id="button-more"
+                  (click)="
+                    openDialogDelete(element.id, projectDetails?.id, $event)
+                  "
+                >
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </td>
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

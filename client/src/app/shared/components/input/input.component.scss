@@ -1,0 +1,20 @@
+app-input {
+  .input-form {
+    min-width: 150px;
+    max-width: 300px;
+    width: 100%;
+  }
+
+  .mat-mdc-text-field-wrapper {
+    height: 40px;
+  }
+
+  input#search-input {
+    padding: 8px 0 0 0;
+  }
+
+  mat-icon#search-icon {
+    position: absolute;
+    padding: 7px 0 0 16px;
+  }
+}

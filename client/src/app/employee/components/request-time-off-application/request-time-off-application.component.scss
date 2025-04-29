@@ -1,0 +1,171 @@
+app-request-time-off-application {
+  width: 100%;
+  .request-time-off-app {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    .request-time-off-app-content.title,
+    .request-time-off-app-content.elements {
+      margin: 16px 16px 0 16px;
+    }
+
+    .request-time-off-app-content.title {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 0 10px 0;
+      border-bottom: 1px solid var(--toolbar-left-border);
+    }
+
+    .request-time-off-app-content.title.left {
+      border: 0;
+    }
+
+    .request-time-off-app-icon {
+      color: var(--button-app-color);
+      border: 1px solid var(--background-element);
+      background-color: var(--main-color-text);
+      border-radius: 14px;
+      margin: 0 8px 0 0;
+    }
+
+    .elements.top.left.request {
+      grid-template-rows: 1fr;
+    }
+
+    span#emp-icon {
+      font-size: 40px;
+      padding: 4px;
+    }
+
+    .request-time-off-app-title {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .line1 {
+      font-size: 28px;
+      font-weight: 600;
+    }
+
+    .request-time-off-app-content.elements {
+      display: grid;
+    }
+
+    .elements-content.columns {
+      display: grid;
+      grid-template-columns: 470px auto;
+    }
+
+    .element-content-left,
+    .element-content-right {
+      border-radius: 10px;
+      padding: 12px 12px 12px 12px;
+      height: 570px;
+    }
+
+    .element-content-left {
+      margin: 0 6px 0 0;
+      border: 1px solid var(--border-app-element);
+    }
+    .element-content-right {
+      margin: 0 0 0 6px;
+    }
+    .title-line {
+      font-size: 18px;
+      font-weight: 600;
+      padding: 0 0 10px 0;
+    }
+
+    //change input
+    .input-full-width {
+      width: 80%;
+    }
+
+    .mat-mdc-form-field-type-mat-date-range-input .mat-mdc-form-field-infix {
+      width: 402px;
+    }
+
+    .mat-mdc-card {
+      background-color: transparent !important;
+      box-shadow: none !important;
+    }
+
+    .mat-date-range-input-separator {
+      margin: 6px 10px;
+    }
+
+    .mat-date-range-input-container {
+      width: 400px;
+      height: 40px;
+      align-items: flex-start;
+    }
+
+    .mat-date-range-input-wrapper {
+      height: 28px;
+    }
+
+    tbody.mat-calendar-body {
+      background-color: var(--background-app-color);
+    }
+
+    mat-calendar.mat-calendar {
+      width: 440px;
+    }
+
+    input#leaveType-inputReadonly,
+    input#name-inputReadonly,
+    input#reason-inputReadonly {
+      cursor: default;
+    }
+
+    .input-title {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 20px 0 10px 0;
+    }
+
+    .button-submit {
+      display: flex;
+      float: left;
+      justify-content: center;
+    }
+
+    .element-request {
+      margin: 0 0 40px 0;
+    }
+
+    button#button-draft {
+      width: 250px;
+      border-radius: 10px;
+      margin: 0px 10px 0px 0px;
+    }
+
+    button#button-submit,
+    button#button-approve,
+    button#button-reject {
+      width: 140px;
+    }
+
+    button#button-submit,
+    button#button-approve,
+    button#button-reject {
+      background-color: var(--positive-element);
+      color: var(--main-color-text);
+      border-radius: 10px;
+    }
+
+    button#button-approve {
+      margin: 0 10px 0 0;
+    }
+
+    button#button-reject {
+      background-color: var(--negative-element);
+      border-color: var(--negative-border);
+    }
+  }
+}

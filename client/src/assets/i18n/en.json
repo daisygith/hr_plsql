@@ -1,0 +1,302 @@
+{
+  "ADD_EMPLOYEE": {
+    "TITLE1": "Employee Profile",
+    "TITLE2": "Add New Employee Profile",
+    "CHANGE_PROFILE": {
+      "BUTTON": {
+        "ADD": "Add",
+        "REMOVE": "Remove"
+      },
+      "INFO": {
+        "OK": "Save successfully",
+        "OK_UPDATE": "Changes saved successfully",
+        "INVALID": "Something went wrong",
+        "INVALID_UPDATE": "Failed to save changes"
+      },
+      "INFO_PICTURE": "Allowed JPG, GIF or PNG. Max size of 800K.",
+      "SUBTITLE": "Change Profile picture form here",
+      "TITLE": "Change Profile"
+    },
+    "PERSONAL_DETAILS": {
+      "ADDRESS": "Address",
+      "BUTTON": {
+        "SAVE_CHANGES": "Save"
+      },
+      "DEPARTMENT": {
+        "TITLE": "Department",
+        "HR": "HR",
+        "IT": "IT",
+        "DESIGN": "DESIGN"
+      },
+      "NAME": "First name and Last name",
+      "PHONE": "Phone",
+      "POSITION": {
+        "TITLE": "Work station",
+        "JUNIOR": "Junior",
+        "MID": "Mid",
+        "SENIOR": "Senior"
+      },
+      "SUBTITLE": "To change User's personal detail, edit and save from here",
+      "STAFF_ID": "Staff ID",
+      "TITLE": "Personal Details",
+      "TYPE_OF_CONTRACT": {
+        "B2B": "B2B",
+        "CONTRACT_FOR_SPECIFIC_WORK": "Contract for specific work",
+        "FEE_FOR_TASK_AGREEMENT": "Fee-for-task agreement",
+        "FULL_TIME_CONTRACT": "Full time contract",
+        "TITLE": "Type of contract"
+      }
+    }
+  },
+  "ADD_TASK": {
+    "BUTTON": {
+      "ADD_EMPLOYEES": "Add employees",
+      "ADD_TASK": "Add task",
+      "SAVE": "Save"
+    },
+    "COMMENT": "Comment",
+    "EMPLOYEE": "Employee",
+    "ESTIMATED_WORK_TIME": "Estimated work time",
+    "ESTIMATED_TASK_TIME_END": "Estimated task time end",
+    "DESCRIPTION": "Description",
+    "MANAGE_PROJECT": "Manage project",
+    "MANAGE_TASKS": "Manage tasks",
+    "NAME_OF_TASK": "Name of task",
+    "PRIORITY": {
+      "HIGH": "High",
+      "NORMAL": "Normal",
+      "LOW": "Low"
+    },
+    "PRIORITY_STATUS": "Priority",
+    "STATUS": {
+      "NEW": "Pending",
+      "WORK_IN_PROGRESS": "In progress",
+      "DONE": "Done"
+    },
+    "STATUS_TITLE": "Status",
+    "START_DATE": "Start date",
+    "TITLE1": "Task: {{value}}",
+    "TITLE2": "Add new task",
+    "TITLE_TASK1": "Data of task",
+    "TITLE_TASK2": "To change task details, edit and save from here",
+    "TYPE_OF_TASK": {
+      "NORMAL": "Normal",
+      "FAULT": "Fault"
+    },
+    "TYPE_OF_TASK_TITLE": "Type of task"
+  },
+  "DATA": {
+    "REMOVE_OK": "Data deleted successfully",
+    "REMOVE_FAIL": "Data cannot be deleted"
+  },
+  "DEPARTMENTS": {
+    "BUTTON": {
+      "ADD_DEPARTMENT": "Add department"
+    },
+    "DATA_OF_DEPARTMENT": "Data of department",
+    "DEPARTMENT": "Department {{value}}",
+    "NAME": "Name of department",
+    "SUBTITLE": "Manage departments",
+    "TITLE": "Departments",
+    "TITLE2": "Add new department"
+  },
+  "EMPLOYEE": {
+    "ADD_EMPLOYEE": "Add Employee",
+    "APPLY_REQUEST_TIME_OFF": "Apply request time off",
+    "FILTER": "Filter",
+    "MANAGE_EMPLOYEE": "Manage Employee",
+    "REQUEST_TIME_OFF": "Request Time Off",
+    "SUBTITLE": "Manage employee",
+    "TITLE": "Employee"
+  },
+  "FILE": {
+    "DELETE_DATA": "Delete data?",
+    "QUESTION": "Would you like to delete data?",
+    "NO": "No",
+    "YES": "Yes"
+  },
+  "LOGIN": {
+    "BUTTON": {
+      "LOGIN": "Login"
+    },
+    "EMAIL": "Email",
+    "INFO": {
+      "OK": "Login successfully",
+      "INVALID": "Something went wrong"
+    },
+    "LOGOUT": "Logout successfully",
+    "PASSWORD": "Password",
+    "REGISTRATION": {
+      "BUTTON": "Create an account",
+      "TITLE": "You don't already have an account? Sign up!"
+    },
+    "REQUIRED": {
+      "USERNAME": "Username is required",
+      "PASSWORD_REQUIRED": "Password is required",
+      "PASSWORD_INVALID": "Password is invalid"
+    },
+    "TITLE": "Welcome to HR!",
+    "TITLE_LOGIN": "Login",
+    "USERNAME": "User name"
+  },
+  "MANAGE_EMPLOYEE": {
+    "CONTACT_TYPE": "Contact Type",
+    "EMPLOYEE_NAME": "Employee name",
+    "DEPARTMENT": "Department",
+    "JOB_TITLE": "Job Title",
+    "PHONE_NUMBER": "Phone Number"
+  },
+  "MANAGE_PROJECT": {
+    "EMPLOYEES": "Employees assigned to the project"
+  },
+  "MANAGE_USER": {
+    "EMAIL": "E-mail",
+    "USERNAME": "User name",
+    "ROLE": "Role",
+    "ROLES": {
+      "ADMIN": "Admin",
+      "MODERATOR": "Moderator",
+      "USER": "User"
+    },
+    "TITLE1": "User profile",
+    "TITLE2": "Add New User Profile"
+  },
+  "NAVBAR": {
+    "SEARCH_HERE": "Search"
+  },
+  "PROJECTS": {
+    "BUTTON": {
+      "ADD_DEPARTMENT": "Add project"
+    },
+    "DATA_OF_PROJECT": "Data of project",
+    "NAME": "Name of project",
+    "PROJECT": "Project: {{value}}",
+    "SUBTITLE": "Manage projects",
+    "TITLE": "Projects",
+    "TITLE2": "Add new project"
+  },
+  "REGISTRATION": {
+    "BUTTON": {
+      "SING_UP": "Sing up"
+    },
+    "CONFIRM_PASSWORD": "Confirm password",
+    "EMAIL": "Email",
+    "INFO": {
+      "OK": "Registered successfully",
+      "INVALID": "Something went wrong"
+    },
+    "PASSWORD": "Password",
+    "REQUIRED": {
+      "CONFIRM_PASSWORD_REQUIRED": "Confirm password is required",
+      "EMAIL_REQUIRED": "Email is required",
+      "EMAIL_INVALID": "Email is required",
+      "USERNAME": "Username is required",
+      "PASSWORD_MISMATCH": "Password mismatch",
+      "PASSWORD_REQUIRED": "Password is required",
+      "PASSWORD_INVALID": "Password is invalid"
+    },
+    "TITLE": "Create an account to HR!",
+    "TITLE_LOGIN": "Create an account",
+    "USERNAME": "User name"
+  },
+  "REQUEST_TIME_OFF": {
+    "BUTTON": {
+      "APPROVE": "Approve",
+      "DRAFT_REQUEST": "Save as draft",
+      "EDIT": "Edit",
+      "REJECT": "Reject",
+      "SUBMIT_REQUEST": "Submit request"
+    },
+    "DATE": {
+      "START_DATE": "Start date",
+      "END_DATE": "End date"
+    },
+    "DAYS": "Days",
+    "EMPLOYEE_NAME": "Employee name",
+    "LEAVE_FROM": "Leave from",
+    "LEAVE_TO": "Leave to",
+    "LEAVE_TYPE": "Leave Type",
+    "LEAVE_TYPES": {
+      "ANNUAL_LEAVE": "Annual leave",
+      "CASUAL_LEAVE": "Casual leave",
+      "PAID_TIME_OFF": "Paid time off leave",
+      "SICK_LEAVE": "Sick leave",
+      "UNPAID_LEAVE": "Unpaid leave"
+    },
+    "REASON": "Reason",
+    "SELECT": "Select",
+    "STAT": {
+      "APPROVE": "Approved",
+      "DRAFT": "Draft",
+      "PENDING": "Pending",
+      "REJECT": "Rejected"
+    },
+    "STATUS": "Status",
+    "TITLE": "Leave Request"
+  },
+  "SIDEBAR": {
+    "EMPLOYEE": "Employee",
+    "DASHBOARD": "Dashboard",
+    "DEPARTMENTS": "Departments",
+    "LOGOUT": "Logout",
+    "MAIN_MENU": "MAIN MENU",
+    "OTHER": "OTHER",
+    "PROJECTS": "Projects",
+    "SETTINGS": "Settings",
+    "STAFF_LIST": "Staff List",
+    "USERS_LIST": "Users"
+  },
+  "USER": {
+    "CHANGE_PASSWORD": {
+      "SUBTITLE": "To change password please confirm here",
+      "TITLE": "Change Password",
+      "NEW_PASSWORD": "New Password",
+      "CONFIRM_PASSWORD": "Confirm Password"
+    },
+    "CHANGE_PROFILE": {
+      "BUTTON": {
+        "UPDATE": "Update",
+        "REMOVE": "Remove"
+      },
+      "INFO_PICTURE": "Allowed JPG, GIF or PNG. Max size of 800K.",
+      "SUBTITLE": "Change Profile picture form here",
+      "TITLE": "Change Profile"
+    },
+    "CURRENT_PASSWORD": "Current password",
+    "INFO": {
+      "OK": "Save successfully",
+      "INVALID": "Something went wrong"
+    },
+    "PERSONAL_DETAILS": {
+      "ADDRESS": "Address",
+      "BUTTON": {
+        "SAVE_CHANGES": "Save"
+      },
+      "DESTINATION": {
+        "TITLE": "Destination",
+        "OPTION_1": "Option_1",
+        "OPTION_2": "Option_2"
+      },
+      "EMAIL": "Email",
+      "GENDER": {
+        "FEMALE": "FEMALE",
+        "OTHER": "OTHER",
+        "MALE": "MALE",
+        "TITLE": "Gender"
+      },
+      "NAME": "First name and Last name",
+      "PHONE": "Phone",
+      "SUBTITLE": "To change User's personal detail, edit and save from here",
+      "STAFF_ID": "Staff ID",
+      "TITLE": "Personal Details"
+    }
+  },
+  "USERS_LIST": {
+    "BUTTON": {
+      "ADD_USER": "Add user"
+    },
+    "MANAGE_USERS": "Manage users",
+    "SUBTITLE": "Manage users",
+    "TITLE": "Users"
+  }
+}

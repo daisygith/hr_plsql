@@ -1,0 +1,332 @@
+@use "./assets/scss/material";
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+  height: 100%;
+  overflow-y: hidden;
+}
+body {
+  margin: 0;
+  //font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Inter", sans-serif;
+}
+
+// color of the page
+:root {
+  --toolbar-left-width: 300px;
+
+  --main-color: #000000;
+
+  //--color-3: #ffa40a;
+  //--color-4: #913af6;
+
+  --button-app-color: #3c41e9;
+  --positive-element: #12a779;
+  --positive-background-element: rgba(11, 227, 161, 0.7);
+  --color-3: #ffa40a;
+  //--color-4: #913af6;
+  --background-element: rgba(0, 87, 255, 0.11);
+  --background-app-color: #f2f3f5;
+  --main-color-text: #ffffff;
+  --border-app-element: rgba(0, 0, 0, 0.1);
+  --input-placeholder-color: rgba(0, 0, 0, 0.36);
+  --negative-element: #a71212ff;
+  --negative-border: #ee636383;
+  --priority-status-high: #ff0000ff;
+
+  --positive-status: rgba(106, 243, 200, 0.56);
+  --pending-status-color: rgba(246, 195, 100, 0.56);
+  --annual-color: #669ef8;
+  --paid-time-off-color: rgba(172, 110, 246, 0.56);
+  --unpaid-color: rgba(250, 145, 105, 0.56);
+  --casual-color: rgba(250, 105, 231, 0.56);
+  //
+  --mat-form-field-container-vertical-padding: 0px;
+  --mat-form-field-filled-with-label-container-padding-top: 16px;
+  --mat-tab-header-active-focus-label-text-color: rgb(0, 87, 255);
+
+  --mat-dialog-container-max-width: 800px;
+
+  --it-department: #427ddc;
+  --hr-department: #913af6;
+  --designer-department: #12a779;
+}
+
+html,
+body {
+  height: 100%;
+  max-height: 100dvh;
+  background-color: var(--background-app-color);
+}
+
+.active {
+  border-radius: 6px;
+  background-color: var(--background-element);
+}
+
+.active mat-icon#dashboard-icon,
+.active mat-icon#staff_list-icon,
+.active mat-icon#groups-icon,
+.active mat-icon#settings-icon,
+.active mat-icon#logout-icon,
+.active mat-icon#users-list-icon,
+.active mat-icon#department-icon,
+.active mat-icon#project-icon {
+  color: var(--button-app-color);
+}
+.active div {
+  color: var(--button-app-color);
+}
+
+mat-icon#emp-icon {
+  font-size: 40px;
+  padding: 6px;
+  height: 36px;
+  width: 40px;
+}
+
+input::placeholder {
+  color: var(--input-placeholder-color) !important;
+  opacity: 1; /* Firefox */
+}
+
+input::-ms-input-placeholder {
+  /* Edge 12-18 */
+  color: var(--input-placeholder-color) !important;
+}
+
+select {
+  font-family: "Inter", sans-serif;
+}
+
+select:focus-visible {
+  outline: transparent auto 1px;
+}
+
+.mat-mdc-table {
+  background-color: transparent !important;
+  box-shadow: none;
+  .mat-mdc-header-cell {
+    &:first-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    &:last-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+}
+
+mat-icon#manage-icon,
+mat-icon#request-icon {
+  margin: 6px !important;
+}
+
+tr.mat-mdc-header-row.mdc-data-table__header-row.cdk-header-row {
+  height: 36px !important;
+}
+
+//add-employee, edit-user
+.bottom {
+  margin: 0;
+  background-color: var(--main-color-text);
+}
+
+.elements.top.left,
+.elements.top.right,
+.add-employee-content.bottom,
+.edit-user-content.bottom,
+.add-user-content.bottom,
+.add-department-content.bottom,
+.add-project-content.bottom {
+  border-radius: 10px;
+  border: 1px solid var(--border-app-element);
+  padding: 20px 20px 20px 20px;
+}
+
+.add-employee-content.top,
+.project-id-form.top {
+  margin: 0 0 16px 0;
+}
+
+.elements-title {
+  width: auto;
+}
+
+.title-line1,
+.title-line2 {
+  margin: 0 0 10px 0;
+}
+
+.title-line1 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.title-line2 {
+  font-size: 14px;
+}
+
+.elements-content {
+  align-self: center;
+  align-content: space-around;
+  justify-items: stretch;
+}
+
+.picture,
+.button,
+.info {
+  text-align: center;
+}
+
+img#picture-avatar {
+  border-radius: 50%;
+  margin: 0 10px 0 0;
+}
+
+.elements.top.left {
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  background-color: var(--main-color-text);
+}
+
+.button {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 0 10px 0;
+}
+
+button#button-remove {
+  border-radius: 10px;
+}
+
+button#button-remove {
+  border-color: var(--negative-element);
+  color: var(--negative-element);
+  background-color: var(--negative-border);
+  width: 126px;
+}
+
+.button-update {
+  padding: 0 10px 0 0;
+  text-align: right;
+}
+
+.button-remove {
+  padding: 0 0 0 10px;
+  text-align: left;
+}
+
+.info {
+  font-size: 12px;
+}
+
+.mat-mdc-form-field-bottom-align::before {
+  content: none;
+}
+
+.input-full-width {
+  width: 100%;
+}
+
+.info-personal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+button#language-button {
+  border: 1px solid var(--border-app-element);
+  color: var(--main-color);
+  border-radius: 10px 10px;
+}
+
+.mat-mdc-snack-bar-container {
+  &.green-snackbar {
+    --mdc-snackbar-container-color: var(--positive-element) !important;
+    --mat-mdc-snack-bar-button-color: var(--main-color-text);
+    --mdc-snackbar-supporting-text-color: var(--main-color-text);
+  }
+}
+
+.mat-mdc-snack-bar-container {
+  &.red-snackbar {
+    --mdc-snackbar-container-color: var(--negative-element) !important;
+    --mat-mdc-snack-bar-button-color: var(--main-color-text);
+    --mdc-snackbar-supporting-text-color: var(--main-color-text);
+  }
+}
+
+.mat-mdc-form-field-error {
+  font-size: 12px;
+}
+
+.mat-mdc-unelevated-button:not(:disabled) {
+  background-color: var(--button-app-color) !important;
+}
+
+.row-actions {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.list-tabs {
+  padding: 0 20px 0 20px;
+}
+
+.list-toolbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0 10px 0;
+}
+
+input#input-filter {
+  margin: 0 0 0 30px;
+  padding: 8px 0 0 0;
+}
+
+mat-icon#filter-icon {
+  left: -18px;
+  position: absolute;
+  padding: 8px 0 0 14px;
+  color: var(--border-app-element);
+}
+
+.mdc-text-field--filled {
+  height: 40px;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+  cursor: pointer;
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+  background-color: var(--background-element);
+}
+
+button#button-details,
+button#button-more {
+  color: var(--main-color);
+  border: 1px solid var(--border-app-element);
+  border-radius: 10px;
+}
+
+button#button-details {
+  width: 40px;
+}
+
+button#button-more {
+  padding-block: 0;
+  padding-inline: 0;
+  min-width: 28px;
+
+  mat-icon.mat-icon.notranslate.material-icons.mat-ligature-font.mat-icon-no-color {
+    margin: 0 2px 0 0;
+  }
+}

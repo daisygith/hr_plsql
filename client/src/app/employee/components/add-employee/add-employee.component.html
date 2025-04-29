@@ -1,0 +1,202 @@
+<div class="add-employee">
+  <div class="add-employee-content title">
+    <div class="add-employee-content title left">
+      <div class="add-employee-icon">
+        <mat-icon class="material-symbols-outlined" id="emp-icon"
+          >person_apron</mat-icon
+        >
+      </div>
+      <div *ngIf="id != null; then title1; else title2"></div>
+      <ng-template #title1>
+        <div class="add-employee-title">
+          <div class="line1">{{ "ADD_EMPLOYEE.TITLE1" | translate }}</div>
+        </div>
+      </ng-template>
+      <ng-template #title2>
+        <div class="add-employee-title">
+          <div class="line1">{{ "ADD_EMPLOYEE.TITLE2" | translate }}</div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+
+  <div class="add-employee-content elements">
+    <div class="add-employee-content top">
+      <div class="elements top left">
+        <div class="elements-title">
+          <div class="title-line1">
+            {{ "ADD_EMPLOYEE.CHANGE_PROFILE.TITLE" | translate }}
+          </div>
+          <div class="title-line2">
+            {{ "ADD_EMPLOYEE.CHANGE_PROFILE.SUBTITLE" | translate }}
+          </div>
+        </div>
+        <div class="elements-content">
+          <div class="picture">
+            <img
+              [ngSrc]="
+                (imageUrl | imageToken) || 'assets/image/default-avatar.png'
+              "
+              alt="default avatar"
+              height="100"
+              width="100"
+              id="picture-avatar"
+            />
+          </div>
+          <div class="button">
+            <div class="button-update">
+              <app-file-upload
+                (onUploadSuccess)="onUploadImage($event, employee?.id)"
+              />
+            </div>
+            <div class="button-remove">
+              <button
+                mat-stroked-button
+                id="button-remove"
+                (click)="onDeleteImage(employee?.id)"
+              >
+                {{ "ADD_EMPLOYEE.CHANGE_PROFILE.BUTTON.REMOVE" | translate }}
+              </button>
+            </div>
+          </div>
+          <div class="info">
+            {{ "ADD_EMPLOYEE.CHANGE_PROFILE.INFO_PICTURE" | translate }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="add-employee-content bottom" [formGroup]="addEmployeeForm">
+      <div class="elements-title">
+        <div class="title-line1">
+          {{ "ADD_EMPLOYEE.PERSONAL_DETAILS.TITLE" | translate }}
+        </div>
+        <div class="title-line2">
+          {{ "ADD_EMPLOYEE.PERSONAL_DETAILS.SUBTITLE" | translate }}
+        </div>
+      </div>
+      <div class="elements-content info-personal">
+        <div class="info-personal-left">
+          <div class="input-title">
+            {{ "ADD_EMPLOYEE.PERSONAL_DETAILS.NAME" | translate }}
+          </div>
+          <mat-form-field class="input-full-width">
+            <input
+              matInput
+              type="text"
+              is="name"
+              formControlName="name"
+              [placeholder]="'ADD_EMPLOYEE.PERSONAL_DETAILS.NAME' | translate"
+              id="input-name-personal"
+            />
+          </mat-form-field>
+          <div class="input-title">
+            {{ "ADD_EMPLOYEE.PERSONAL_DETAILS.STAFF_ID" | translate }}
+          </div>
+          <mat-form-field class="input-full-width">
+            <input
+              matInput
+              type="number"
+              is="staffId"
+              formControlName="staffId"
+              [placeholder]="
+                'ADD_EMPLOYEE.PERSONAL_DETAILS.STAFF_ID' | translate
+              "
+              id="input-staffId-personal"
+            />
+          </mat-form-field>
+          <div class="input-title">
+            {{ "ADD_EMPLOYEE.PERSONAL_DETAILS.PHONE" | translate }}
+          </div>
+          <mat-form-field class="input-full-width">
+            <input
+              matInput
+              type="text"
+              is="phone"
+              formControlName="phone"
+              [placeholder]="'ADD_EMPLOYEE.PERSONAL_DETAILS.PHONE' | translate"
+              id="input-email-personal"
+            />
+          </mat-form-field>
+        </div>
+        <div class="info-personal-right">
+          <div class="input-title">
+            {{ "ADD_EMPLOYEE.PERSONAL_DETAILS.POSITION.TITLE" | translate }}
+          </div>
+          <mat-form-field class="input-full-width">
+            <mat-select type="text" is="position" formControlName="position">
+              <mat-option
+                *ngFor="let position of positionOptions"
+                [value]="position"
+              >
+                {{ position }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div class="input-title">
+            {{ "ADD_EMPLOYEE.PERSONAL_DETAILS.DEPARTMENT.TITLE" | translate }}
+          </div>
+          <mat-form-field class="input-full-width">
+            <mat-select
+              type="text"
+              is="department"
+              formControlName="department"
+            >
+              <mat-option
+                *ngFor="let department of departmentOptions"
+                [value]="department"
+              >
+                {{ department }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div class="input-title">
+            {{
+              "ADD_EMPLOYEE.PERSONAL_DETAILS.TYPE_OF_CONTRACT.TITLE" | translate
+            }}
+          </div>
+          <mat-form-field class="input-full-width">
+            <mat-select
+              type="text"
+              is="typeOfContract"
+              formControlName="typeOfContract"
+            >
+              <mat-option
+                *ngFor="let typeOfContract of typeOfContractOptions"
+                [value]="typeOfContract"
+              >
+                {{
+                  "ADD_EMPLOYEE.PERSONAL_DETAILS.TYPE_OF_CONTRACT." +
+                    typeOfContract | translate
+                }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="elements-content address-personal">
+        <div class="input-title">
+          {{ "ADD_EMPLOYEE.PERSONAL_DETAILS.ADDRESS" | translate }}
+        </div>
+        <mat-form-field class="input-full-width">
+          <input
+            matInput
+            type="text"
+            is="address"
+            formControlName="address"
+            [placeholder]="'ADD_EMPLOYEE.PERSONAL_DETAILS.ADDRESS' | translate"
+            id="input-address-personal"
+          />
+        </mat-form-field>
+      </div>
+      <div class="save-changes">
+        <div class="button-save">
+          <button mat-stroked-button id="button-save" (click)="saveData()">
+            {{
+              "ADD_EMPLOYEE.PERSONAL_DETAILS.BUTTON.SAVE_CHANGES" | translate
+            }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

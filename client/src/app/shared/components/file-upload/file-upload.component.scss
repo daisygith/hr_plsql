@@ -1,0 +1,19 @@
+app-file-upload {
+  input[type="file"] {
+    background-color: transparent !important;
+    border: transparent !important;
+    display: none;
+  }
+
+  button#button-update {
+    border-radius: 10px;
+  }
+  button#button-update {
+    border: 1px solid var(--positive-element);
+    background-color: var(--main-color-text);
+    color: var(--main-color);
+    width: 126px;
+    height: 40px;
+    font-size: 14px;
+  }
+}

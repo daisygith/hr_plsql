@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>{{ "FILE.DELETE_DATA" | translate }}</h2>
+<mat-dialog-content> {{ "FILE.QUESTION" | translate }} </mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close (click)="onNoClick()">
+    {{ "FILE.NO" | translate }}
+  </button>
+  <button mat-button mat-dialog-close>
+    {{ "FILE.YES" | translate }}
+  </button>
+</mat-dialog-actions>

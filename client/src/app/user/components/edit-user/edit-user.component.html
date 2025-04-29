@@ -1,0 +1,182 @@
+<div class="edit-user">
+  <div class="edit-user-content title">
+    <div class="edit-user-content title left">
+      <div class="edit-user-icon">
+        <mat-icon class="material-symbols-outlined" id="emp-icon"
+          >person_apron</mat-icon
+        >
+      </div>
+      <div class="edit-user-title">
+        <div class="line1">{{ "USER.TITLE" | translate }}</div>
+      </div>
+    </div>
+  </div>
+  <form [formGroup]="editUserForm">
+    <div class="edit-user-content elements">
+      <div class="edit-user-content top">
+        <div class="elements top left">
+          <div class="elements-title">
+            <div class="title-line1">
+              {{ "USER.CHANGE_PROFILE.TITLE" | translate }}
+            </div>
+            <div class="title-line2">
+              {{ "USER.CHANGE_PROFILE.SUBTITLE" | translate }}
+            </div>
+          </div>
+          <div class="elements-content">
+            <div class="picture">
+              <img
+                [ngSrc]="
+                  (imageUrl | imageToken) || 'assets/image/default-avatar.png'
+                "
+                alt="default avatar"
+                height="100"
+                width="100"
+                id="picture-avatar"
+              />
+            </div>
+            <div class="button">
+              <div class="button-update">
+                <app-file-upload (onUploadSuccess)="onUploadImage($event)" />
+              </div>
+              <div class="button-remove">
+                <button
+                  mat-stroked-button
+                  id="button-remove"
+                  (click)="onDeleteImage()"
+                >
+                  {{ "USER.CHANGE_PROFILE.BUTTON.REMOVE" | translate }}
+                </button>
+              </div>
+            </div>
+            <div class="info">
+              {{ "USER.CHANGE_PROFILE.INFO_PICTURE" | translate }}
+            </div>
+          </div>
+        </div>
+        <app-change-password></app-change-password>
+      </div>
+      <div class="edit-user-content bottom">
+        <div class="elements-title">
+          <div class="title-line1">
+            {{ "USER.PERSONAL_DETAILS.TITLE" | translate }}
+          </div>
+          <div class="title-line2">
+            {{ "USER.PERSONAL_DETAILS.SUBTITLE" | translate }}
+          </div>
+        </div>
+        <div class="elements-content info-personal">
+          <div class="info-personal-left">
+            <div class="input-title">
+              {{ "USER.PERSONAL_DETAILS.NAME" | translate }}
+            </div>
+            <mat-form-field class="input-full-width">
+              <input
+                matInput
+                [placeholder]="'USER.PERSONAL_DETAILS.NAME' | translate"
+                id="input-name-personal"
+                type="text"
+                is="name"
+                formControlName="name"
+              />
+            </mat-form-field>
+            <div class="input-title">
+              {{ "USER.PERSONAL_DETAILS.STAFF_ID" | translate }}
+            </div>
+            <mat-form-field class="input-full-width">
+              <input
+                matInput
+                [placeholder]="'USER.PERSONAL_DETAILS.STAFF_ID' | translate"
+                id="input-staffId-personal"
+                formControlName="staffId"
+              />
+            </mat-form-field>
+            <div class="input-title">
+              {{ "USER.PERSONAL_DETAILS.EMAIL" | translate }}
+            </div>
+            <mat-form-field class="input-full-width">
+              <input
+                matInput
+                [placeholder]="'USER.PERSONAL_DETAILS.EMAIL' | translate"
+                id="input-email-personal"
+                type="text"
+                is="email"
+                formControlName="email"
+              />
+            </mat-form-field>
+          </div>
+          <div class="info-personal-right">
+            <div class="input-title">
+              {{ "USER.PERSONAL_DETAILS.GENDER.TITLE" | translate }}
+            </div>
+            <mat-form-field class="input-full-width">
+              <mat-select type="text" is="gender" formControlName="gender">
+                <mat-option
+                  *ngFor="let gender of genderOption"
+                  [value]="gender"
+                >
+                  {{ "USER.PERSONAL_DETAILS.GENDER." + gender | translate }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div class="input-title">
+              {{ "USER.PERSONAL_DETAILS.DESTINATION.TITLE" | translate }}
+            </div>
+            <mat-form-field class="input-full-width">
+              <mat-select
+                type="text"
+                is="destination"
+                formControlName="destination"
+              >
+                <mat-option
+                  *ngFor="let destination of destinationOption"
+                  [value]="destination"
+                >
+                  {{
+                    "USER.PERSONAL_DETAILS.DESTINATION." + destination
+                      | translate
+                  }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div class="input-title">
+              {{ "USER.PERSONAL_DETAILS.PHONE" | translate }}
+            </div>
+            <mat-form-field class="input-full-width">
+              <input
+                matInput
+                [placeholder]="'USER.PERSONAL_DETAILS.PHONE' | translate"
+                id="input-phone-personal"
+                type="text"
+                is="phone"
+                formControlName="phone"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="elements-content address-personal">
+          <div class="input-title">
+            {{ "USER.PERSONAL_DETAILS.ADDRESS" | translate }}
+          </div>
+          <mat-form-field class="input-full-width">
+            <input
+              matInput
+              [placeholder]="'USER.PERSONAL_DETAILS.ADDRESS' | translate"
+              id="input-address-personal"
+              type="text"
+              is="address"
+              formControlName="address"
+            />
+          </mat-form-field>
+        </div>
+        <div class="save-changes">
+          <div class="button-save">
+            <button mat-stroked-button id="button-save" (click)="saveData()">
+              {{ "USER.PERSONAL_DETAILS.BUTTON.SAVE_CHANGES" | translate }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

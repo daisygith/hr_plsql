@@ -1,0 +1,60 @@
+<div class="list-toolbar">
+  <div class="list-title">
+    {{ "PROJECTS.SUBTITLE" | translate }}
+  </div>
+  <div class="list-additional-elem">
+    <mat-form-field class="input-full-width">
+      <mat-icon id="filter-icon">filter_alt</mat-icon>
+      <input
+        matInput
+        (keyup)="applyFilter($event)"
+        type="text"
+        [placeholder]="'EMPLOYEE.FILTER' | translate"
+        id="input-filter"
+      />
+    </mat-form-field>
+  </div>
+</div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Employee Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>
+      {{ "PROJECTS.NAME" | translate }}
+    </th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.name }}
+    </td>
+  </ng-container>
+
+  <!--   Details Type Column -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element">
+      <div class="row-actions" *hasRole="canSeeDetailsEmployee">
+        <button
+          mat-mini-fab
+          id="button-details"
+          [routerLink]="['/projects', element.id]"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button
+          mat-mini-fab
+          id="button-more"
+          (click)="openDialog(element.id, $event)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr
+    mat-row
+    *matRowDef="let row; columns: displayedColumns"
+    (click)="onRowCLick(row)"
+  ></tr>
+</table>

@@ -1,0 +1,44 @@
+<div class="departments">
+  <div class="departments-content title">
+    <div class="departments-content title left">
+      <div class="departments-icon">
+        <mat-icon class="material-symbols-outlined" id="emp-icon"
+          >category</mat-icon
+        >
+      </div>
+      <div class="departments-title">
+        <div class="line1">{{ "DEPARTMENTS.TITLE" | translate }}</div>
+        <div class="line2">{{ "DEPARTMENTS.SUBTITLE" | translate }}</div>
+      </div>
+    </div>
+    <div class="departments-content title right">
+      <div class="button-add">
+        <button
+          mat-flat-button
+          routerLink="/departments/new"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          id="add-button"
+        >
+          <mat-icon>add</mat-icon>
+          {{ "DEPARTMENTS.BUTTON.ADD_DEPARTMENT" | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="departments-content list">
+    <div class="list-tabs">
+      <mat-tab-group mat-stretch-tabs="false">
+        <mat-tab class="manage-departments">
+          <ng-template mat-tab-label>
+            <mat-icon id="manage-icon">category</mat-icon>
+            {{ "DEPARTMENTS.SUBTITLE" | translate }}
+          </ng-template>
+          <div class="list-content">
+            <app-departments-list></app-departments-list>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>

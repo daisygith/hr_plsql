@@ -1,0 +1,107 @@
+<div class="add-user">
+  <div class="add-user-content title">
+    <div class="add-user-content title left">
+      <div class="add-user-icon">
+        <mat-icon class="material-symbols-outlined" id="emp-icon"
+          >person_apron</mat-icon
+        >
+      </div>
+      <div *ngIf="id != null; then title1; else title2"></div>
+      <ng-template #title1>
+        <div class="add-user-title">
+          <div class="line1">{{ "MANAGE_USER.TITLE1" | translate }}</div>
+        </div>
+      </ng-template>
+      <ng-template #title2>
+        <div class="add-user-title">
+          <div class="line1">{{ "MANAGE_USER.TITLE2" | translate }}</div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+
+  <div class="add-user-content elements">
+    <div class="add-user-content bottom" [formGroup]="addUserForm">
+      <div class="elements-title">
+        <div class="title-line1">
+          {{ "ADD_EMPLOYEE.PERSONAL_DETAILS.TITLE" | translate }}
+        </div>
+        <div class="title-line2">
+          {{ "ADD_EMPLOYEE.PERSONAL_DETAILS.SUBTITLE" | translate }}
+        </div>
+      </div>
+      <div class="user-content info-personal">
+        <div class="info-personal-left">
+          <div class="input-title">
+            {{ "MANAGE_USER.USERNAME" | translate }}
+          </div>
+          <mat-form-field class="input-full-width">
+            <input
+              matInput
+              type="text"
+              is="username"
+              formControlName="username"
+              [placeholder]="'MANAGE_USER.USERNAME' | translate"
+              id="input-name-personal"
+            />
+          </mat-form-field>
+          <div class="input-title">
+            {{ "MANAGE_USER.EMAIL" | translate }}
+          </div>
+          <mat-form-field class="input-full-width">
+            <input
+              matInput
+              type="text"
+              is="email"
+              formControlName="email"
+              [placeholder]="'MANAGE_USER.EMAIL' | translate"
+              id="input-staffId-personal"
+            />
+          </mat-form-field>
+        </div>
+        <div class="info-personal-right">
+          <div class="input-title">
+            {{ "MANAGE_USER.ROLE" | translate }}
+          </div>
+          <mat-form-field class="input-full-width">
+            <mat-select
+              type="text"
+              is="position"
+              formControlName="roles"
+              multiple
+            >
+              <mat-option *ngFor="let role of roles" [value]="role.id">
+                {{ role.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div class="input-title">
+            {{ "MANAGE_USER.ROLE" | translate }}
+          </div>
+          <mat-form-field class="input-full-width">
+            <input
+              type="text"
+              matInput
+              [matAutocomplete]="auto"
+              formControlName="employeeId"
+            />
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+              @for (option of filteredOptions | async; track option) {
+                <mat-option [value]="option.id">{{ option.name }}</mat-option>
+              }
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="save-changes">
+        <div class="button-save">
+          <button mat-stroked-button id="button-save" (click)="saveData()">
+            {{
+              "ADD_EMPLOYEE.PERSONAL_DETAILS.BUTTON.SAVE_CHANGES" | translate
+            }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

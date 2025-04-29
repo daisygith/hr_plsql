@@ -1,0 +1,65 @@
+<div class="employee">
+  <div class="employee-content title">
+    <div class="employee-content title left">
+      <div class="employee-icon">
+        <mat-icon class="material-symbols-outlined" id="emp-icon"
+          >group</mat-icon
+        >
+      </div>
+      <div class="employee-title">
+        <div class="line1">{{ "EMPLOYEE.TITLE" | translate }}</div>
+        <div class="line2">{{ "EMPLOYEE.SUBTITLE" | translate }}</div>
+      </div>
+    </div>
+    <div class="employee-content title right">
+      <div class="button-add" *hasRole="canAddEmployeeRoles">
+        <button
+          mat-flat-button
+          routerLink="/employee/new"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          id="add-employee-button"
+        >
+          <mat-icon>add</mat-icon>
+          {{ "EMPLOYEE.ADD_EMPLOYEE" | translate }}
+        </button>
+      </div>
+      <div class="button-add">
+        <button
+          mat-flat-button
+          routerLink="/employee/request-time-off/new"
+          routerLinkActive="active"
+          ariaCurrentWhenActive="page"
+          id="request-time-off-application"
+        >
+          <mat-icon>add</mat-icon>
+          {{ "EMPLOYEE.APPLY_REQUEST_TIME_OFF" | translate }}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="employee-content list">
+    <div class="list-tabs">
+      <mat-tab-group mat-stretch-tabs="false">
+        <mat-tab class="manage-employee">
+          <ng-template mat-tab-label>
+            <mat-icon id="manage-icon">manage_accounts</mat-icon>
+            {{ "EMPLOYEE.MANAGE_EMPLOYEE" | translate }}
+          </ng-template>
+          <div class="list-content">
+            <app-manage-employee></app-manage-employee>
+          </div>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon id="request-icon">person_check</mat-icon>
+            {{ "EMPLOYEE.REQUEST_TIME_OFF" | translate }}
+          </ng-template>
+          <div class="list-content">
+            <app-request-time-off></app-request-time-off>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>

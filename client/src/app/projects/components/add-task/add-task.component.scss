@@ -1,0 +1,84 @@
+app-add-task {
+  width: 100%;
+  .add-task {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+  .add-task-content {
+    margin: 16px 16px 0 16px;
+  }
+
+  .add-task-content.title {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 10px 0;
+  }
+
+  .add-task-icon {
+    color: var(--button-app-color);
+    border: 1px solid var(--background-element);
+    background-color: var(--main-color-text);
+    border-radius: 14px;
+    margin: 0 8px 0 0;
+  }
+  .add-task-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .line1 {
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  .add-task-content.list {
+    border: 1px solid var(--border-app-element);
+    border-radius: 20px;
+    min-height: 50vh;
+    height: auto;
+    background-color: var(--main-color-text);
+    padding: 20px;
+  }
+
+  .add-task-title {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 20px 0 10px 0;
+  }
+
+  .address-personal {
+    margin: 0 0 30px 0;
+  }
+
+  .button-save {
+    display: block;
+    float: right;
+  }
+
+  button#button-save {
+    background-color: var(--positive-element);
+    color: var(--main-color-text);
+    border-radius: 10px;
+  }
+
+  .input-title {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 20px 0 10px 0;
+  }
+
+  .elements-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mat-mdc-unelevated-button > .mat-icon {
+    left: 8px;
+  }
+}

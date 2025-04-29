@@ -1,0 +1,15 @@
+app-users-list {
+  .mat-column-actions {
+    width: 58px;
+  }
+  .mat-mdc-mini-fab {
+    background-color: transparent;
+  }
+
+  .mat-column-name {
+    min-width: 200px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+  }
+}

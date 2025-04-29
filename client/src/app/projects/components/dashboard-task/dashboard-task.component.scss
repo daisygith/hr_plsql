@@ -1,0 +1,118 @@
+app-dashboard-task {
+  .list-toolbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0 10px 0;
+  }
+
+  .list-title {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 8px 0 6px 0;
+  }
+  .dashboard-task-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+
+  .task-status {
+    position: absolute;
+    background-color: var(--priority-status-high);
+    z-index: 1;
+    height: 100%;
+    width: 6px;
+    left: 0;
+    top: 0;
+  }
+
+  .task-table-title {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    padding: 8px;
+    margin: 0 0 10px 0;
+    border-bottom: 2px solid var(--border-app-element);
+  }
+
+  .task-table-content {
+    min-height: 90px;
+    position: relative;
+    overflow: hidden;
+    margin: 10px auto;
+    padding: 14px 14px 0 14px;
+    border-radius: 12px;
+    border: 1px solid var(--border-app-element);
+    line-height: 1.7em;
+    cursor: pointer;
+  }
+
+  .task-table-content:hover {
+    background-color: var(--border-app-element);
+  }
+
+  .description-task.top {
+    border-bottom: 1px solid var(--border-app-element);
+  }
+
+  .description-task.bottom {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+    margin: 8px 0 8px 0;
+  }
+
+  .task-info {
+    display: flex;
+    flex-direction: column;
+  }
+  .task-info-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  mat-icon#icon-priority {
+    color: var(--priority-status-high);
+  }
+
+  .task-employeeName {
+    display: flex;
+    align-items: center;
+  }
+
+  span.task-description {
+    font-size: 12px;
+  }
+
+  button#button-delete {
+    color: var(--border-app-element);
+    box-shadow: none;
+    background-color: transparent;
+    width: 32px;
+    height: 32px;
+  }
+  button#button-edit:hover,
+  button#button-delete:hover {
+    color: var(--main-color);
+  }
+
+  button#button-edit {
+    margin: 0 4px 0 0;
+  }
+
+  .mat-mdc-table .mat-mdc-header-cell:first-child {
+    border-bottom-left-radius: 0px;
+  }
+  .mat-mdc-table .mat-mdc-header-cell:last-child {
+    border-bottom-right-radius: 0px;
+  }
+  .mat-mdc-header-cell {
+    text-align: center;
+  }
+}

@@ -1,0 +1,40 @@
+<div class="manage-project">
+  <div class="manage-project-content title">
+    <div class="manage-project-content title left">
+      <div class="manage-project-icon">
+        <mat-icon class="material-symbols-outlined" id="emp-icon"
+          >workspaces</mat-icon
+        >
+      </div>
+      <div class="manage-project-title">
+        <div class="line1">
+          {{ "PROJECTS.PROJECT" | translate: { value: projectDetails?.name } }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="manage-project-content list">
+    <div class="list-tabs">
+      <mat-tab-group mat-stretch-tabs="false">
+        <mat-tab class="manage-employee">
+          <ng-template mat-tab-label>
+            <mat-icon id="manage-icon">task</mat-icon>
+            {{ "ADD_TASK.MANAGE_TASKS" | translate }}
+          </ng-template>
+          <div class="list-content">
+            <app-dashboard-task [projectDetails]="projectDetails" />
+          </div>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon id="request-icon">folder_managed</mat-icon>
+            {{ "ADD_TASK.MANAGE_PROJECT" | translate }}
+          </ng-template>
+          <div class="list-content">
+            <app-manage-project-id />
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>
